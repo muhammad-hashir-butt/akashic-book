@@ -26,16 +26,8 @@ export default function HomeCards() {
           <div className="border border-gray-200 rounded bg-gray-50 overflow-hidden max-w-[260px] mx-auto">
             <div className="h-10 bg-gradient-to-r from-gray-800 to-gray-900" />
             <div className="p-2.5 text-xs">
-              <div className="flex items-center justify-between gap-2 -mt-5 mb-2">
-                <div className="pt-3">
-                  <h4 className="font-bold text-gray-900">Akashic Books</h4>
-                  <p className="text-[10px] text-gray-500">9.5K followers</p>
-                </div>
-                <div className="w-10 h-10 bg-white border border-gray-300 flex items-center justify-center font-black text-[9px] text-center leading-none shadow-sm">
-                  AKASHIC
-                  <br />
-                  BOOKS
-                </div>
+              <div className="mb-2">
+                <p className="text-[10px] text-gray-500">9.5K followers</p>
               </div>
               <button className="w-full bg-[#1877f2] hover:bg-blue-700 text-white text-xs font-bold py-1.5 rounded cursor-pointer mb-2">
                 Follow
@@ -57,16 +49,8 @@ export default function HomeCards() {
               </span>
             </div>
             <div className="p-2.5 text-xs">
-              <div className="flex items-center justify-between gap-2 -mt-6 mb-2">
-                <div className="pt-4">
-                  <h4 className="font-bold text-gray-900">Akashic Books</h4>
-                  <p className="text-[10px] text-gray-500">9.5K followers</p>
-                </div>
-                <div className="w-11 h-11 bg-white border border-gray-300 flex items-center justify-center font-black text-[10px] text-center leading-none shadow-sm">
-                  AKASHIC
-                  <br />
-                  BOOKS
-                </div>
+              <div className="mb-2">
+                <p className="text-[10px] text-gray-500">9.5K followers</p>
               </div>
               <button className="w-full bg-[#1877f2] hover:bg-blue-700 text-white text-xs font-bold py-1.5 rounded cursor-pointer mb-2">
                 Follow

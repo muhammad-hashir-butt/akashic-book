@@ -44,29 +44,89 @@ const featuredBooks = [
   },
 ];
 
-export default function SubjectsSidebar() {
+export default function SubjectsSidebar({ setActivePage }) {
+
+  // Subject Navigation
+  const handleSubjectClick = (subject) => {
+    if (!setActivePage) return;
+
+    if (subject === "Black Interest") {
+      setActivePage("BLACK_INTEREST");
+    } else if (subject === "Black Sheep") {
+      setActivePage("BLACK_SHEEP");
+    } else if (subject === "Caribbean Interest") {
+      setActivePage("CARIBBEAN_INTEREST");
+    } else if (subject === "Children's") {
+      setActivePage("CHILDRENS");
+    } else if (subject === "Digits & E-Books") {
+      setActivePage("DIGITS_EBOOKS");
+    } else if (subject === "Edge of Sports") {
+      setActivePage("EDGE_OF_SPORTS");
+    } else if (subject === "Enemy Books") {
+      setActivePage("ENEMY_BOOKS");
+    } else if (subject === "Forthcoming") {
+      setActivePage("FORTHCOMING");
+    } else if (subject === "Gift Books") {
+      setActivePage("GIFT_BOOKS");
+    } else if (subject === "Gracie Belle") {
+      setActivePage("GRACIE_BELLE");
+    } else {
+      return;
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const availableSubjects = [
+    "Black Interest",
+    "Black Sheep",
+    "Caribbean Interest",
+    "Children's",
+    "Digits & E-Books",
+    "Edge of Sports",
+    "Enemy Books",
+    "Forthcoming",
+    "Gift Books",
+    "Gracie Belle",
+  ];
+
   return (
     <aside className="w-full lg:w-[225px] shrink-0 space-y-4">
 
-      {/* Box 1: Featured: Black Interest (Moved to Top) */}
+      {/* Box 1: Featured Black Interest */}
       <div className="bg-white border border-gray-300 shadow-md">
+
         <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2 flex items-center justify-between gap-2">
+
           <h2 className="text-xs font-bold text-[#222]">
-            <span className="font-normal text-gray-600">Featured:</span> Black Interest
+            <span className="font-normal text-gray-600">
+              Featured:
+            </span>{" "}
+            Black Interest
           </h2>
-          <a
-            href="#more-black-interest"
+
+          <button
+            type="button"
+            onClick={() => handleSubjectClick("Black Interest")}
             className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline shrink-0"
           >
             More &raquo;
-          </a>
+          </button>
+
         </div>
 
         <div className="divide-y divide-gray-200">
+
           {featuredBooks.map((book) => (
             <div key={book.id} className="p-2.5 text-[11px]">
+
               <div className="flex gap-2 items-start justify-between">
+
                 <div className="flex-1">
+
                   <a
                     href="#book"
                     className="font-bold text-[#9e1b1b] hover:underline leading-snug block mb-1"
@@ -76,18 +136,26 @@ export default function SubjectsSidebar() {
 
                   {book.links.length > 0 && (
                     <div className="mb-1.5 text-[10.5px] text-gray-700 space-y-0.5">
+
                       {book.links.map((store) => (
                         <div key={store}>
                           Order on{" "}
-                          <a href="#order" className="text-[#9e1b1b] hover:underline">
+                          <a
+                            href="#order"
+                            className="text-[#9e1b1b] hover:underline"
+                          >
                             {store}
                           </a>
                         </div>
                       ))}
+
                     </div>
                   )}
 
-                  <p className="text-gray-700 leading-snug">{book.desc}</p>
+                  <p className="text-gray-700 leading-snug">
+                    {book.desc}
+                  </p>
+
                 </div>
 
                 <img
@@ -95,30 +163,56 @@ export default function SubjectsSidebar() {
                   alt={book.title}
                   className="w-16 h-20 object-cover border border-gray-200 shrink-0"
                 />
+
               </div>
             </div>
           ))}
+
         </div>
       </div>
 
-      {/* Box 2: Subjects (Moved Below) */}
+      {/* Box 2: Subjects */}
       <div className="bg-white border border-gray-300 shadow-md">
+
         <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-          <h2 className="text-sm font-bold text-[#222]">Subjects</h2>
+          <h2 className="text-sm font-bold text-[#222]">
+            Subjects
+          </h2>
         </div>
 
         <ul className="px-3 py-3 space-y-1.5 text-[12px]">
+
           {subjects.map((subject) => (
             <li key={subject}>
-              <a
-                href={`#${subject.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                className="text-[#9e1b1b] hover:underline hover:text-black block leading-snug"
-              >
-                {subject}
-              </a>
+
+              {availableSubjects.includes(subject) ? (
+
+                <button
+                  type="button"
+                  onClick={() => handleSubjectClick(subject)}
+                  className="text-[#9e1b1b] hover:underline hover:text-black block leading-snug text-left w-full"
+                >
+                  {subject}
+                </button>
+
+              ) : (
+
+                <a
+                  href={`#${subject
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]/g, "-")}`}
+                  className="text-[#9e1b1b] hover:underline hover:text-black block leading-snug"
+                >
+                  {subject}
+                </a>
+
+              )}
+
             </li>
           ))}
+
         </ul>
+
       </div>
 
     </aside>

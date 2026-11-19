@@ -28,7 +28,7 @@ export default function EventsSidebar() {
             href="#follow-twitter"
             className="inline-block bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded hover:bg-gray-900"
           >
-            Follow @akashicbooks
+            Follow
           </a>
         </div>
 
@@ -37,8 +37,7 @@ export default function EventsSidebar() {
             <span className="font-bold text-[#9e1b1b]">
               RT @ComicCrusaders:
             </span>{" "}
-            REVIEW: STANDING THE NAPALM GRAPHIC ANTHOLOGY OF CHUCK D from{" "}
-            <span className="text-[#9e1b1b]">@AkashicBooks</span> by{" "}
+            REVIEW: STANDING THE NAPALM GRAPHIC ANTHOLOGY OF CHUCK D by{" "}
             <span className="text-[#9e1b1b]">@ChuckD</span>.
           </p>
           <div className="text-[10px] text-[#9e1b1b] space-x-2">

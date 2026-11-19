@@ -8,15 +8,15 @@ const slides = [
     quote:
       "“This ghostly collection about death, motherhood, and impossible choices is perfect for fans of Beloved.”",
     source: "—Booklist",
-    bgGradient: "from-[#4e4ca0] via-[#6260b8] to-[#3c59a8]",
+    bgGradient: "from-[#262626] via-[#333333] to-[#4f1414]",
   },
   {
     title: "New Fiction & Noir Releases",
     author: "Explore Our Latest Catalog",
     quote:
       "“Independent publishing with bold voices from Brooklyn and around the world.”",
-    source: "—Akashic Books",
-    bgGradient: "from-[#7a1c1c] via-[#9b2b2b] to-[#4a1010]",
+    source: "",
+    bgGradient: "from-[#5e1111] via-[#7a1818] to-[#2a2a2a]",
   },
 ];
 
@@ -31,71 +31,105 @@ export default function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <div className="mb-5">
-      {/* Top Dark Caption Strip */}
-      <div className="bg-[#333333] text-white text-center py-2 text-xs sm:text-sm font-bold tracking-wide">
-        {slide.title}
+    <div className="mb-5 border border-gray-300 bg-white shadow-md rounded-sm overflow-hidden">
+      {/* Top Dark Header Bar (Matches Navbar Theme) */}
+      <div className="bg-[#333333] border-b-2 border-[#9e1b1b] px-4 py-2 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <span className="bg-[#9e1b1b] text-yellow-300 text-[10px] font-extrabold px-2 py-0.5 rounded-sm tracking-wider uppercase shrink-0">
+            Featured
+          </span>
+          <span className="text-white text-xs sm:text-sm font-bold tracking-wide truncate">
+            {slide.title}
+          </span>
+        </div>
+
+        {/* Clickable Slide Indicator Dots */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2 rounded-full cursor-pointer ${
+                current === idx ? "w-5 bg-[#9e1b1b]" : "w-2 bg-gray-500"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Yellow Border Frame */}
-      <div className="border-2 border-[#e5c100] bg-[#fffbe0] p-1.5 relative">
-        <div
-          className={`relative bg-gradient-to-r ${slide.bgGradient} text-white min-h-[230px] sm:min-h-[255px] flex flex-col sm:flex-row items-center justify-between gap-5 px-10 py-5 overflow-hidden`}
-        >
-          {/* Left Arrow */}
+      {/* Main Showcase Banner */}
+      <div
+        className={`bg-gradient-to-r ${slide.bgGradient} text-white px-5 sm:px-7 py-6 flex flex-col md:flex-row items-center gap-6`}
+      >
+        {/* LEFT: Book Cover + Author Portrait */}
+        <div className="flex items-end gap-3.5 shrink-0">
+          {/* Book Cover */}
+          <div className="relative w-28 h-40 sm:w-32 sm:h-44 bg-[#1a1a1a] border-2 border-white/80 shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80"
+              alt="Book Cover"
+              className="w-full h-full object-cover"
+            />
+            <span className="absolute -top-2.5 -left-2.5 bg-[#9e1b1b] text-yellow-300 text-[10px] font-extrabold px-2.5 py-1 rounded-sm border border-yellow-300/60 shadow">
+              OUT NOW!
+            </span>
+          </div>
+
+          {/* Author Portrait */}
+          <div className="w-24 h-32 sm:w-28 sm:h-36 bg-[#1a1a1a] border border-white/40 shadow-lg overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=300&q=80"
+              alt="Author"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* RIGHT: Editorial Text + Quote Card */}
+        <div className="flex-1 text-center md:text-left">
+          <h3 className="text-yellow-300 text-xl sm:text-2xl font-extrabold leading-tight tracking-tight">
+            {slide.title}
+          </h3>
+          <p className="text-gray-200 text-sm sm:text-base font-semibold mt-0.5 mb-3">
+            {slide.author}
+          </p>
+
+          <div className="bg-black/25 border-l-4 border-[#9e1b1b] px-4 py-3 rounded-r-sm max-w-lg mx-auto md:mx-0">
+            <p className="text-xs sm:text-sm italic text-gray-100 leading-relaxed">
+              {slide.quote}
+            </p>
+            {slide.source && (
+              <p className="text-xs font-bold text-yellow-300/90 mt-1.5">
+                {slide.source}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Navigation Strip */}
+      <div className="bg-[#e8e6df] border-t border-gray-300 px-4 py-2 flex items-center justify-between">
+        <span className="text-[11px] font-bold text-[#333333] uppercase tracking-wider">
+          Spotlight {current + 1} of {slides.length}
+        </span>
+
+        <div className="flex items-center gap-1.5">
           <button
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/55 hover:bg-black/80 text-white p-1.5 cursor-pointer z-10"
+            className="bg-[#333333] text-white px-2.5 py-1 rounded-sm flex items-center gap-1 text-[11px] font-bold cursor-pointer"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-3.5 h-3.5" />
+            Prev
           </button>
-
-          {/* LEFT: Text Content */}
-          <div className="text-center sm:text-left flex-1">
-            <h3 className="text-[#f7e27d] text-xl sm:text-2xl font-bold leading-tight">
-              {slide.title}
-            </h3>
-            <p className="text-[#f7e27d] text-base sm:text-lg font-semibold mb-3">
-              {slide.author}
-            </p>
-            <p className="text-xs sm:text-sm italic text-white/95 max-w-md mx-auto sm:mx-0">
-              {slide.quote}
-            </p>
-            <p className="text-xs italic text-white/90 mt-1">{slide.source}</p>
-          </div>
-
-          {/* RIGHT: Book Cover + Author Portrait */}
-          <div className="flex items-center gap-4 shrink-0">
-            {/* Book Cover + OUT NOW Badge */}
-            <div className="relative w-28 h-40 bg-black/40 border border-white/40 shadow-xl shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80"
-                alt="Book Cover"
-                className="w-full h-full object-cover"
-              />
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-extrabold px-2 py-2 rounded-full border-2 border-white shadow">
-                OUT NOW!
-              </span>
-            </div>
-
-            {/* Author Portrait */}
-            <div className="w-32 h-40 sm:w-36 sm:h-44 bg-black/30 border border-white/30 overflow-hidden shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=300&q=80"
-                alt="Author"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Right Arrow */}
           <button
             onClick={nextSlide}
             aria-label="Next slide"
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/55 hover:bg-black/80 text-white p-1.5 cursor-pointer z-10"
+            className="bg-[#9e1b1b] text-white px-2.5 py-1 rounded-sm flex items-center gap-1 text-[11px] font-bold cursor-pointer"
           >
-            <ChevronRight className="w-6 h-6" />
+            Next
+            <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
