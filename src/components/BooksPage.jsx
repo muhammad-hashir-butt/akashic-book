@@ -146,23 +146,7 @@ const sidebarNews = [
 // EVENTS
 // ======================================
 
-const events = [
-  {
-    id: 1,
-    title: "Kira Tucker — University of Pittsburgh (Pittsburgh, PA)",
-    date: "11/19/26",
-    desc: "Kira Tucker presents Wildest.",
-    img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
-  },
-  {
-    id: 2,
-    title: "Tiphanie Yanique — Miami Book Fair (Miami, FL)",
-    date: "11/21/26, 12:30pm",
-    desc:
-      "Noir, Myth, and the Island Fantastic panel featuring Tiphanie Yanique.",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
-  },
-];
+
 
 // ======================================
 // CHECK BOOK TITLE AGAINST LETTER
@@ -627,69 +611,9 @@ export default function BooksPage() {
 
         </div>
 
-        {/* UPCOMING EVENTS */}
-        <div className="bg-white border border-gray-300 shadow-md">
+      
 
-          <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-
-            <h2 className="text-xs font-bold text-[#222]">
-              Upcoming Events
-            </h2>
-
-          </div>
-
-          <div className="divide-y divide-gray-200">
-
-            {events.map((event) => (
-
-              <div
-                key={event.id}
-                className="p-3 flex gap-2.5 items-start"
-              >
-
-                <img
-                  src={event.img}
-                  alt={event.title}
-                  className="w-14 h-20 object-cover border border-gray-200 shrink-0"
-                />
-
-                <div className="text-[11px]">
-
-                  <a
-                    href="#event"
-                    className="font-bold text-[#9e1b1b] hover:underline leading-snug block mb-1"
-                  >
-                    {event.title}
-                  </a>
-
-                  <p className="text-gray-700 font-medium mb-1">
-                    {event.date}
-                  </p>
-
-                  <p className="text-gray-600 leading-snug">
-                    {event.desc}
-                  </p>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-
-          <div className="px-3 py-2 border-t border-gray-200">
-
-            <a
-              href="#more-events"
-              className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline"
-            >
-              More Events &raquo;
-            </a>
-
-          </div>
-
-        </div>
+        
 
       </aside>
 
