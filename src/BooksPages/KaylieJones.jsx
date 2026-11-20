@@ -110,20 +110,7 @@ const kaylieJonesBooks = [
     amazonLink: "https://www.amazon.com/dp/B09WHJSC7B",
   },
 
-  {
-    id: 8,
-
-    title: "Stuff Kaylie Writes Down",
-
-    author: " Loveable Fringe ",
-
-    description:
-      "A personalized notebook designed for Kaylie to write down anything worth remembering. Use it for journaling, lists, school notes, creative ideas, reminders, and everyday writing.",
-
-    image: "/kaylie-jones/kaylie-jones 8.jpg",
-
-    amazonLink: "https://www.amazon.com/dp/169537410X",
-  },
+ 
 ];
 
 // =====================================

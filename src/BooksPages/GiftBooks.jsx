@@ -1,33 +1,9 @@
 import React from "react";
 
 const giftBooks = [
-  {
-    id: 1,
-    title: "101 Things to Do While You're Alive: A Bucket List",
-    author: "Thriving Minds",
-    description:
-      "An inspiring bucket-list book designed to encourage adventure, creativity, and unforgettable experiences. Packed with ideas for making meaningful memories, it offers an engaging way to explore new possibilities and celebrate life's special moments.",
-    image: "/gift books/gift books 1.png",
-    amazonLink: "https://www.amazon.com/dp/1764858182",
-  },
-  {
-    id: 2,
-    title: "Baptism Book for Boys: Faith-Building Activities",
-    author: "Kingdom Press",
-    description:
-      "A faith-centered activity book designed to help young boys understand and celebrate baptism. Featuring engaging educational activities, it encourages spiritual growth, reflection, and a deeper connection with Christian values.",
-    image: "/gift books/gift books 2.jpg",
-    amazonLink: "https://www.amazon.com/dp/1764574346",
-  },
-  {
-    id: 3,
-    title: "The Greatest Six-Seven Activity Book",
-    author: "Premium Press",
-    description:
-      "A fun-filled activity book inspired by the popular 6-7 trend. Featuring puzzles, mazes, word searches, crosswords, Sudoku, and other entertaining challenges, it offers screen-free entertainment for children ages 8–12.",
-    image: "/gift books/gift books 3.jpg",
-    amazonLink: "https://www.amazon.com/dp/1764574303",
-  },
+  
+
+  
   {
     id: 4,
     title: "The Twelve Gifts of Christmas",

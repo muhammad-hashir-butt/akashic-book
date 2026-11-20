@@ -42,16 +42,7 @@ const digitsEBooks = [
     amazonLink:
       "https://www.amazon.com/dp/B0HRW17G2X",
   },
-  {
-    id: 5,
-    title: "Let's Review 2 & 3 Digit Addition",
-    author: " Velleity Designs",
-    description:
-      "An addition workbook for grades 2–4, featuring exercises to help children practice adding two-digit and three-digit numbers.",
-    image: "/Digit and ebook/digit 5.jpg",
-    amazonLink:
-      "https://www.amazon.com/dp/B0GXPKDYNM",
-  },
+  
   {
     id: 6,
     title: "Multi-Digit Multiplication Workbook: Grades 4–6",
@@ -92,16 +83,7 @@ const digitsEBooks = [
     amazonLink:
       "https://www.amazon.com/dp/B0HRTDY6RS",
   },
-  {
-    id: 10,
-    title: "Pi Episode III: The Final Million Digits",
-    author: " Stochastic Press",
-    description:
-      "The third episode in a mathematics-themed series exploring the fascinating digits of pi.",
-    image: "/Digit and ebook/digit 10.jpg",
-    amazonLink:
-      "https://www.amazon.com/dp/B0GGBCS412",
-  },
+  
 ];
 
 export default function DigitsEBooks() {

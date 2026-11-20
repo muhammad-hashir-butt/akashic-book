@@ -96,51 +96,10 @@ const latinAmericanBooks = [
     amazonLink: "https://www.amazon.com/dp/B0B6LF72WF",
   },
 
-  {
-    id: 7,
+  
+ 
 
-    title: "5-Minute Latin American Spanish Journal",
-
-    author: "Digital Polyglot ",
-
-    description:
-      "A language practice journal designed to encourage short, regular writing sessions in Latin American Spanish. It can help learners build consistency, practice vocabulary, and develop confidence in expressing everyday thoughts.",
-
-    image: "/latin-american/latin-american 7.jpg",
-
-    amazonLink: "https://www.amazon.com/dp/B0CYSWCMW8",
-  },
-
-  {
-    id: 8,
-
-    title:
-      "Latin American Spanish Expressions: Upper-Intermediate",
-
-    author: "Wordstay ",
-
-    description:
-      "A Spanish-language learning resource focused on expressions used in Latin American Spanish. Designed for upper-intermediate learners who want to expand their vocabulary and strengthen their understanding of everyday language.",
-
-    image: "/latin-american/latin-american 8.jpg",
-
-    amazonLink: "https://www.amazon.com/dp/B0HQJ9PKF7",
-  },
-
-  {
-    id: 9,
-
-    title: "Maravillas de Latinoamérica",
-
-    author: "Digital Polyglot",
-
-    description:
-      "A colorful introduction to the wonders of Latin America, celebrating the region's beauty and cultural variety. This book invites readers to discover distinctive places, traditions, and the rich heritage of Latin American countries.",
-
-    image: "/latin-american/latin-american 9.jpg",
-
-    amazonLink: "https://www.amazon.com/dp/B0D5HD3W5V",
-  },
+  
 
   {
     id: 10,

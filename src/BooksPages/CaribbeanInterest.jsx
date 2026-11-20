@@ -87,15 +87,7 @@ const caribbeanInterestBooks = [
     image: "/caribbean interest/caribbean interest 9.jpg",
     amazonLink: "https://www.amazon.com/dp/B0G3K9PDL5",
   },
-  {
-    id: 10,
-    title: "Caribbean Cruise: Grown-Up Activity Book",
-    author: "Travel Companion Puzzle Books",
-    description:
-      "A cruise-themed activity book featuring puzzles, games, journaling pages, and entertaining activities for adult travelers.",
-    image: "/caribbean interest/caribbean interest 10.png",
-    amazonLink: "https://www.amazon.com/dp/B0H9Z5ZF5G",
-  },
+ 
 ];
 
 // ======================================

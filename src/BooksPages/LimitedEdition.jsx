@@ -52,15 +52,7 @@ const limitedEditionBooks = [
     amazonLink: "https://www.amazon.com/dp/B0HPY76SJH",
   },
 
-  {
-    id: 6,
-    title: "CAIA Level Exam Preparation Questions",
-    author: " ProLearn Insights Ltd",
-    description:
-      "A study resource for candidates preparing for the Chartered Alternative Investment Analyst examination. Focused on exam preparation and practice questions, this book is intended to help readers review their knowledge and become more familiar with professional certification assessments.",
-    image: "/limited edition/limited edition 6.jpg",
-    amazonLink: "https://www.amazon.com/dp/B0FPC59F3K",
-  },
+  
 
   {
     id: 7,

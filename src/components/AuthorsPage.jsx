@@ -1,3 +1,4 @@
+
 import React, { useMemo, useState } from "react";
 
 // ======================================
@@ -68,7 +69,6 @@ const authorBooks = [
   ["Prince Alex", "The Caribbean Drinks & Desserts Cookbook", "B0HFKG3QML"],
   ["Mary McLaurin", "Caribbean Cruise Pocket Guide 2026", "B0HBXG8VFZ"],
   ["Sidney K. Torbett", "History of the Caribbean", "B0G3K9PDL5"],
-  ["Travel Companion Puzzle Books", "Caribbean Cruise: Grown-Up Activity Book", "B0H9Z5ZF5G"],
 
   // CHILDREN'S
   ["Sam Bright", "The American History Mystery Series", "B0FVW2WGPM"],
@@ -87,12 +87,10 @@ const authorBooks = [
   ["Stacey Samuels", "Meet the Digits", "B0HPM32JH9"],
   ["T. Jobe", "Digits of √2", "B0CV6B3F2S"],
   ["Creative Masterson", "Death by Digits", "B0HRW17G2X"],
-  ["Velleity Designs", "Let's Review 2 & 3 Digit Addition", "B0GXPKDYNM"],
   ["saviola tinno", "Multi-Digit Multiplication Workbook: Grades 4–6", "B0HRJ3T7L8"],
   ["Moshood Abiola", "The Digit Zero", "B0FSCBMCTZ"],
   ["narinzoon", "Single Digit Addition Vertical Worksheet", "B0DJBRCJ6S"],
   ["H M Shafique", "Multi-Digit Multiplication Workbook: Grade 4", "B0HRTDY6RS"],
-  ["Stochastic Press", "Pi Episode III: The Final Million Digits", "B0GGBCS412"],
 
   // EDGE OF SPORTS
   ["Robert E. Deel", "GARMIN EDGE 1050 USER GUIDE", "B0HJRXQ4P3"],
@@ -129,9 +127,6 @@ const authorBooks = [
   ["David Labrava", "Becoming a Son", "1522730796"],
 
   // GIFT BOOKS
-  ["Thriving Minds", "101 Things to Do While You're Alive", "1764858182"],
-  ["Kingdom Press", "Baptism Book for Boys", "1764574346"],
-  ["Premium Press", "The Greatest Six-Seven Activity Book", "1764574303"],
   ["Kevin Finson", "The Twelve Gifts of Christmas", "B0DKZNYSX4"],
   ["Thomas B. Dowd III", "Now What? The Ultimate Graduation Guide", "B01D4V4USO"],
   ["Donna Pool", "The Saving Tree", "B0GMY4T5P7"],
@@ -169,7 +164,6 @@ const authorBooks = [
   ["Christian Lattimer", "I'm Kaylie Doing Kaylie Things", "B085RTT7BM"],
   ["Miles Tucker", "Where in the World Is Kaylie?", "B08DBVR79J"],
   ["Trlen Chhan", "Kaylie: Personalized Journal Notebook", "B09WHJSC7B"],
-  ["Loveable Fringe", "Stuff Kaylie Writes Down", "169537410X"],
 
   // LATIN AMERICAN INTEREST
   ["Dan Harmon", "The Latin American Surf Tales", "B0D3974HBW"],
@@ -178,9 +172,6 @@ const authorBooks = [
   ["Frédéric Veau", "Myths and Legends of Latin America", "B0CRB66DLM"],
   ["Mr Erik Haindl Rondanelli", "Latin American Civilization", "B0HFV7835L"],
   ["Horacio Quiroga", "Short Stories: Father Latin American", "B0B6LF72WF"],
-  ["Digital Polyglot", "5-Minute Latin American Spanish Journal", "B0CYSWCMW8"],
-  ["Wordstay", "Latin American Spanish Expressions", "B0HQJ9PKF7"],
-  ["Digital Polyglot", "Maravillas de Latinoamérica", "B0D5HD3W5V"],
   ["Karen Tinoco", "Human Systems and Resources in Latin American Organizations", "B0GZ4SH5Y2"],
 
   // LGBTQIA+
@@ -189,7 +180,6 @@ const authorBooks = [
   ["Finn Harold Scott", "Consent in Queer Relationships", "B0DJTC7R75"],
   ["Vera Murphy", "The Many Shapes of Love", "B0HMSM3S7B"],
   ["Yet Fry", "LGBTQIA+ Activism, Advocacy, Resistance & Community", "B0GCRP6ZST"],
-  ["Sunderland LGBT+ Network", "Understanding LGBTQ+", "B0H3LPSMYF"],
   ["Alex Harper", "LGBTQ+ Guide to Mixed-Orientation Marriages", "B0D6R9JSL7"],
   ["Dr Richard L Travis", "Brave Queer Becoming", "B0F8TXLPJV"],
 
@@ -199,7 +189,6 @@ const authorBooks = [
   ["Gaming Geburtstag Geschenke by FS", "Level Complete", "B0BCSH4MHF"],
   ["Stephen Fratini", "Beyond Limits", "B0G7FXMQ6V"],
   ["Kezia Conyers", "S.T.P. Beyond the Blueprint Workbook", "B0HPY76SJH"],
-  ["ProLearn Insights Ltd", "CAIA Level Exam Preparation Questions", "B0FPC59F3K"],
   ["Timothy Spears", "AB Study Guide", "1973516047"],
   ["Sybil Bartel", "Limit", "1713318636"],
 
@@ -368,7 +357,6 @@ export default function AuthorsPage({ setActivePage }) {
               &raquo; List of Authors
             </li>
 
-
           </ul>
 
         </div>
@@ -401,11 +389,6 @@ export default function AuthorsPage({ setActivePage }) {
           </ul>
 
         </div>
-
-        
-          
-
-        
 
       </aside>
 
@@ -661,16 +644,6 @@ export default function AuthorsPage({ setActivePage }) {
         </div>
 
       </section>
-
-      
-
-      
-
-      
-
-        
-
-      
 
     </div>
   );

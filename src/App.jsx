@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 import TopBar from "./components/TopBar";
@@ -12,6 +13,8 @@ import NewsPage from "./components/NewsPage";
 import Blogspage from "./components/Blogspage";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
+import Privacypage from "./components/Privacypage";
+import TermsAndConditions from "./components/TermsAndConditions";
 
 // Subject Pages
 import BlackInterest from "./BooksPages/BlackInterest";
@@ -60,227 +63,169 @@ export default function App() {
         {activePage === "BLACK_INTEREST" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <BlackInterest />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "BLACK_SHEEP" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <BlackSheep />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "CARIBBEAN_INTEREST" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <CaribbeanInterest />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "CHILDRENS" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <Childrens />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "DIGITS_EBOOKS" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <DigitsEBooks />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "EDGE_OF_SPORTS" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <EdgeOfSports />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "ENEMY_BOOKS" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <EnemyBooks />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "FORTHCOMING" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <Forthcoming />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "GIFT_BOOKS" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <GiftBooks />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "GRACIE_BELLE" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <GracieBelle />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "INFAMOUS_BOOKS" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <InfamousBooks />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "KAYLIE_JONES" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <KaylieJones />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "LATIN_AMERICAN" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <LatinAmerican />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "LGBTQIA" ? (
 
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <LGBTQIA />
             </section>
-
             <EventsSidebar />
-
           </div>
+
+        ) : activePage === "PRIVACY POLICY" ? (
+
+          <Privacypage />
+
+        ) : activePage === "TERMS & CONDITIONS" ? (
+
+          <TermsAndConditions />
 
         ) : activePage === "LIMITED_EDITION" ? (
 
-          /* Limited Edition/Collectibles Page */
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <LimitedEdition />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "LITERARY_FICTION" ? (
 
-          /* Literary Fiction Page */
           <div className="flex flex-col lg:flex-row items-start gap-4">
-
             <SubjectsSidebar setActivePage={setActivePage} />
-
             <section className="flex-1 min-w-0 w-full">
               <LiteraryFiction />
             </section>
-
             <EventsSidebar />
-
           </div>
 
         ) : activePage === "BOOKS" ? (
@@ -291,23 +236,20 @@ export default function App() {
 
           <AuthorsPage setActivePage={setActivePage} />
 
-        ) : activePage === "SERVICES"  ? (
+        ) : activePage === "SERVICES" ? (
 
           <NewsPage setActivePage={setActivePage} />
 
         ) : activePage === "BLOGS" ? (
 
-          /* Blogs Page */
           <Blogspage setActivePage={setActivePage} />
 
-        ) :  activePage === "ABOUT US" ? (
+        ) : activePage === "ABOUT US" ? (
 
-  /* About Us Page */
-  <AboutUs setActivePage={setActivePage} />
+          <AboutUs setActivePage={setActivePage} />
 
-) : (
+        ) : (
 
-          /* Home Page */
           <div className="flex flex-col lg:flex-row items-start gap-4">
 
             {/* Left Column */}
@@ -315,11 +257,8 @@ export default function App() {
 
             {/* Center Column */}
             <section className="flex-1 bg-white p-4 shadow-lg border border-gray-300 w-full">
-
               <HeroCarousel />
-
               <HomeCards />
-
             </section>
 
             {/* Right Column */}
@@ -332,7 +271,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer setActivePage={setActivePage} />
 
     </div>
   );

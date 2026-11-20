@@ -85,21 +85,7 @@ const lgbtqiaBooks = [
     amazonLink: "https://www.amazon.com/dp/B0GCRP6ZST",
   },
 
-  {
-    id: 6,
-
-    title:
-      "Understanding LGBTQ+: An Adult Guide to Inclusion",
-
-    author: " Sunderland LGBT+ Network ",
-
-    description:
-      "An introductory guide for adults who want to better understand LGBTQ+ identities and experiences. It addresses the importance of respectful communication, awareness, acceptance, and creating more inclusive environments.",
-
-    image: "/LGBTQIA/LGBTQIA 6.jpg",
-
-    amazonLink: "https://www.amazon.com/dp/B0H3LPSMYF",
-  },
+ 
 
   {
     id: 7,
