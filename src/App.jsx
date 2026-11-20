@@ -9,7 +9,8 @@ import EventsSidebar from "./components/EventsSidebar";
 import BooksPage from "./components/BooksPage";
 import AuthorsPage from "./components/AuthorsPage";
 import NewsPage from "./components/NewsPage";
-import EventsPage from "./components/EventsPage";
+import Blogspage from "./components/Blogspage";
+import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 
 // Subject Pages
@@ -23,6 +24,12 @@ import EnemyBooks from "./BooksPages/EnemyBooks";
 import Forthcoming from "./BooksPages/Forthcoming";
 import GiftBooks from "./BooksPages/GiftBooks";
 import GracieBelle from "./BooksPages/GracieBelle";
+import InfamousBooks from "./BooksPages/InfamousBooks";
+import KaylieJones from "./BooksPages/KaylieJones";
+import LatinAmerican from "./BooksPages/LatinAmericanInterest";
+import LGBTQIA from "./BooksPages/LGBTQIA";
+import LimitedEdition from "./BooksPages/LimitedEdition";
+import LiteraryFiction from "./BooksPages/LiteraryFiction";
 
 export default function App() {
   const [activePage, setActivePage] = useState("HOME");
@@ -190,6 +197,92 @@ export default function App() {
 
           </div>
 
+        ) : activePage === "INFAMOUS_BOOKS" ? (
+
+          <div className="flex flex-col lg:flex-row items-start gap-4">
+
+            <SubjectsSidebar setActivePage={setActivePage} />
+
+            <section className="flex-1 min-w-0 w-full">
+              <InfamousBooks />
+            </section>
+
+            <EventsSidebar />
+
+          </div>
+
+        ) : activePage === "KAYLIE_JONES" ? (
+
+          <div className="flex flex-col lg:flex-row items-start gap-4">
+
+            <SubjectsSidebar setActivePage={setActivePage} />
+
+            <section className="flex-1 min-w-0 w-full">
+              <KaylieJones />
+            </section>
+
+            <EventsSidebar />
+
+          </div>
+
+        ) : activePage === "LATIN_AMERICAN" ? (
+
+          <div className="flex flex-col lg:flex-row items-start gap-4">
+
+            <SubjectsSidebar setActivePage={setActivePage} />
+
+            <section className="flex-1 min-w-0 w-full">
+              <LatinAmerican />
+            </section>
+
+            <EventsSidebar />
+
+          </div>
+
+        ) : activePage === "LGBTQIA" ? (
+
+          <div className="flex flex-col lg:flex-row items-start gap-4">
+
+            <SubjectsSidebar setActivePage={setActivePage} />
+
+            <section className="flex-1 min-w-0 w-full">
+              <LGBTQIA />
+            </section>
+
+            <EventsSidebar />
+
+          </div>
+
+        ) : activePage === "LIMITED_EDITION" ? (
+
+          /* Limited Edition/Collectibles Page */
+          <div className="flex flex-col lg:flex-row items-start gap-4">
+
+            <SubjectsSidebar setActivePage={setActivePage} />
+
+            <section className="flex-1 min-w-0 w-full">
+              <LimitedEdition />
+            </section>
+
+            <EventsSidebar />
+
+          </div>
+
+        ) : activePage === "LITERARY_FICTION" ? (
+
+          /* Literary Fiction Page */
+          <div className="flex flex-col lg:flex-row items-start gap-4">
+
+            <SubjectsSidebar setActivePage={setActivePage} />
+
+            <section className="flex-1 min-w-0 w-full">
+              <LiteraryFiction />
+            </section>
+
+            <EventsSidebar />
+
+          </div>
+
         ) : activePage === "BOOKS" ? (
 
           <BooksPage />
@@ -202,17 +295,25 @@ export default function App() {
 
           <NewsPage setActivePage={setActivePage} />
 
-        ) : activePage === "EVENTS" ? (
+        ) : activePage === "BLOGS" ? (
 
-          <EventsPage setActivePage={setActivePage} />
+          /* Blogs Page */
+          <Blogspage setActivePage={setActivePage} />
 
-        ) : (
+        ) :  activePage === "ABOUT US" ? (
+
+  /* About Us Page */
+  <AboutUs setActivePage={setActivePage} />
+
+) : (
 
           /* Home Page */
           <div className="flex flex-col lg:flex-row items-start gap-4">
 
+            {/* Left Column */}
             <SubjectsSidebar setActivePage={setActivePage} />
 
+            {/* Center Column */}
             <section className="flex-1 bg-white p-4 shadow-lg border border-gray-300 w-full">
 
               <HeroCarousel />
@@ -221,6 +322,7 @@ export default function App() {
 
             </section>
 
+            {/* Right Column */}
             <EventsSidebar />
 
           </div>

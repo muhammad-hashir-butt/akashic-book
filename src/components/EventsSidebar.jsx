@@ -1,83 +1,203 @@
 import React from "react";
 
-const events = [
+// ======================================
+// THUNDERSMOUTH PRESS BLOG CONTENT
+// ======================================
+
+const latestBlogs = [
   {
     id: 1,
-    title: "Kira Tucker — University of Pittsburgh (Pittsburgh, PA)",
-    date: "11/19/26",
-    desc: "Kira Tucker presents Wildest.",
-    img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
+    title: "The Power of Storytelling in Modern Literature",
+    category: "Writing & Creativity",
+    date: "November 18, 2026",
+    desc:
+      "Explore how storytelling connects people, preserves experiences, and inspires imagination through literature.",
   },
   {
     id: 2,
-    title: "Tiphanie Yanique — Miami Book Fair (Miami, FL)",
-    date: "11/21/26, 12:30pm",
-    desc: "Noir, Myth, and the Island Fantastic panel featuring Tiphanie Yanique.",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
+    title: "Why Independent Publishing Matters More Than Ever",
+    category: "Publishing Insights",
+    date: "November 15, 2026",
+    desc:
+      "Discover how independent publishing creates opportunities for diverse voices, creativity, and original storytelling.",
+  },
+  {
+    id: 3,
+    title: "How Reading Fiction Expands Our Imagination",
+    category: "Reading & Literature",
+    date: "November 12, 2026",
+    desc:
+      "Learn how fiction introduces new perspectives, encourages curiosity, and creates meaningful reading experiences.",
+  },
+];
+
+const featuredBlogs = [
+  {
+    id: 1,
+    title: "The Art of Creating Memorable Fictional Characters",
+    category: "Writing & Creativity",
+    desc:
+      "Explore the essential elements of character development and discover what makes fictional personalities unforgettable.",
+  },
+  {
+    id: 2,
+    title: "The Importance of Diversity in Literature",
+    category: "Literary Culture",
+    desc:
+      "A closer look at how different cultures, identities, and perspectives enrich the literary world.",
   },
 ];
 
 export default function EventsSidebar() {
   return (
     <aside className="w-full lg:w-[235px] shrink-0 space-y-4">
-      
-      {/* Box 1: Twitter / X Feed Widget (Moved to Top) */}
+
+      {/* ======================================
+          BOX 1: THUNDERSMOUTH PRESS BLOG
+      ====================================== */}
+
       <div className="bg-white border border-gray-300 shadow-md overflow-hidden">
-        <div className="bg-[#29a9e1] px-3 py-2">
-          <a
-            href="#follow-twitter"
-            className="inline-block bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded hover:bg-gray-900"
-          >
-            Follow
-          </a>
+
+        {/* Header */}
+        <div className="bg-[#333333] border-b-2 border-[#9e1b1b] px-3 py-3">
+
+          <h2 className="text-[13px] font-bold text-white">
+            Thundersmouth Press Blog
+          </h2>
+
+          <p className="text-[10px] text-gray-300 mt-1">
+            Stories • Ideas • Literary Insights
+          </p>
+
         </div>
 
-        <div className="p-3 text-[11px] text-gray-800 space-y-2 leading-snug">
-          <p>
-            <span className="font-bold text-[#9e1b1b]">
-              RT @ComicCrusaders:
-            </span>{" "}
-            REVIEW: STANDING THE NAPALM GRAPHIC ANTHOLOGY OF CHUCK D by{" "}
-            <span className="text-[#9e1b1b]">@ChuckD</span>.
+        {/* Blog Introduction */}
+        <div className="p-3">
+
+          <h3 className="text-[13px] font-bold text-[#222] mb-2">
+            Explore the World of Literature
+          </h3>
+
+          <p className="text-[11px] text-gray-700 leading-relaxed">
+            Discover thoughtful articles about writing,
+            storytelling, independent publishing, and
+            literary culture.
           </p>
-          <div className="text-[10px] text-[#9e1b1b] space-x-2">
-            <a href="#reply" className="hover:underline">Reply</a>
-            <a href="#retweet" className="hover:underline">Retweet</a>
-            <a href="#favorite" className="hover:underline">Favorite</a>
+
+          <p className="text-[11px] text-gray-700 leading-relaxed mt-2">
+            From creative inspiration to publishing
+            insights, explore ideas that celebrate
+            the power of books and stories.
+          </p>
+
+          <div className="mt-3 border-t border-gray-200 pt-3">
+
+            <p className="text-[11px] font-semibold text-[#9e1b1b]">
+              Fresh Perspectives on Writing & Reading
+            </p>
+
           </div>
-          <p className="text-[10px] text-gray-500">
-            10:56:04 PM • from Twitter Web App
-          </p>
+
         </div>
+
       </div>
 
-      {/* Box 2: Upcoming Events (Moved Below) */}
+      {/* ======================================
+          BOX 2: LATEST BLOG ARTICLES
+      ====================================== */}
+
       <div className="bg-white border border-gray-300 shadow-md">
+
+        {/* Heading */}
         <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-          <h2 className="text-sm font-bold text-[#222]">Upcoming Events</h2>
+
+          <h2 className="text-sm font-bold text-[#222]">
+            Latest Blog Articles
+          </h2>
+
         </div>
 
+        {/* Blog List */}
         <div className="divide-y divide-gray-200">
-          {events.map((event) => (
-            <div key={event.id} className="p-3 flex gap-3 items-start justify-between">
-              <div className="text-xs flex-1">
-                <p className="text-gray-700 font-medium mb-1">{event.date}</p>
-                <a
-                  href="#event"
-                  className="font-bold text-[#9e1b1b] hover:underline leading-snug block mb-1.5"
-                >
-                  {event.title}
-                </a>
-                <p className="text-gray-600 leading-snug">{event.desc}</p>
-              </div>
-              <img
-                src={event.img}
-                alt={event.title}
-                className="w-16 h-24 object-cover border border-gray-200 shrink-0"
-              />
-            </div>
+
+          {latestBlogs.map((blog) => (
+
+            <article
+              key={blog.id}
+              className="p-3 hover:bg-[#faf9f6] transition-colors duration-200"
+            >
+
+              {/* Category */}
+              <p className="text-[10px] text-gray-500 font-semibold mb-1">
+                {blog.category}
+              </p>
+
+              {/* Blog Title */}
+              <h3 className="text-[12px] font-bold text-[#9e1b1b] leading-snug mb-2">
+                {blog.title}
+              </h3>
+
+              {/* Date */}
+              <p className="text-[10px] text-gray-500 mb-2">
+                {blog.date}
+              </p>
+
+              {/* Description */}
+              <p className="text-[11px] text-gray-700 leading-relaxed">
+                {blog.desc}
+              </p>
+
+            </article>
+
           ))}
+
         </div>
+
+      </div>
+
+      {/* ======================================
+          BOX 3: FEATURED BLOG ARTICLES
+      ====================================== */}
+
+      <div className="bg-white border border-gray-300 shadow-md">
+
+        {/* Heading */}
+        <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
+
+          <h2 className="text-sm font-bold text-[#222]">
+            Featured Articles
+          </h2>
+
+        </div>
+
+        {/* Articles */}
+        <div className="divide-y divide-gray-200">
+
+          {featuredBlogs.map((blog) => (
+
+            <article
+              key={blog.id}
+              className="p-3 hover:bg-[#faf9f6] transition-colors duration-200"
+            >
+
+              <p className="text-[10px] text-gray-500 font-semibold mb-1">
+                {blog.category}
+              </p>
+
+              <h3 className="text-[12px] font-bold text-[#9e1b1b] leading-snug mb-2">
+                {blog.title}
+              </h3>
+
+              <p className="text-[11px] text-gray-700 leading-relaxed">
+                {blog.desc}
+              </p>
+
+            </article>
+
+          ))}
+
+        </div>
+
       </div>
 
     </aside>

@@ -17,36 +17,48 @@ const subjects = [
   "LGBTQIA+ Interest",
   "Limited Edition/Collectibles",
   "Literary Fiction",
-  "Young Adult / Middle Grade",
 ];
+
+// ======================================
+// FEATURED BOOKS
+// ======================================
 
 const featuredBooks = [
   {
     id: 1,
-    title: "I Am a Promise",
-    desc: "An inspiring children's picture book about the indomitable spirit of Jamaican eight-time Olympic medal winner Shelly-Ann Fraser-Pryce.",
-    img: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=200&q=80",
-    links: [],
+    title: "What the Water Kept",
+    author: "Edward Obi",
+    desc:
+      "A haunting literary novel exploring motherhood, grief, family secrets, and supernatural forces.",
+    img: "/literary fiction/literary fiction 1.jpg",
+    amazonLink: "https://www.amazon.com/dp/9786452704",
   },
   {
     id: 2,
-    title: "Interticial ARTelligence: The Moments That Met Me",
-    desc: "Legendary hip-hop artist Chuck D (Public Enemy, Prophets of Rage) details and illustrates his encounters with some of society's most influential musicians, entertainers, and public figures.",
-    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&q=80",
-    links: ["Bookshop", "Barnes & Noble", "Amazon"],
+    title: "The Mis-Education of the Negro",
+    author: "Carter Godwin Woodson",
+    desc:
+      "An influential examination of education, history, Black identity, and intellectual independence.",
+    img: "/Black Interest/book intrest 2.jpg",
+    amazonLink: "https://www.amazon.com/dp/B09VWRWW6K",
   },
   {
     id: 3,
-    title: "A Simple Distance",
-    desc: "A provocative debut that masterfully fuses issues of culture, race, sexuality, and family.",
-    img: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=200&q=80",
-    links: [],
+    title: "Black Luck",
+    author: "Brad Magnarella",
+    desc:
+      "A supernatural urban fantasy adventure filled with magic, mystery, and unexpected danger.",
+    img: "/Black Interest/book intrest 10.jpg",
+    amazonLink: "https://www.amazon.com/dp/1720517681",
   },
 ];
 
 export default function SubjectsSidebar({ setActivePage }) {
 
-  // Subject Navigation
+  // ======================================
+  // SUBJECT NAVIGATION
+  // ======================================
+
   const handleSubjectClick = (subject) => {
     if (!setActivePage) return;
 
@@ -70,6 +82,18 @@ export default function SubjectsSidebar({ setActivePage }) {
       setActivePage("GIFT_BOOKS");
     } else if (subject === "Gracie Belle") {
       setActivePage("GRACIE_BELLE");
+    } else if (subject === "Infamous Books") {
+      setActivePage("INFAMOUS_BOOKS");
+    } else if (subject === "Kaylie Jones Books") {
+      setActivePage("KAYLIE_JONES");
+    } else if (subject === "Latin American Interest") {
+      setActivePage("LATIN_AMERICAN");
+    } else if (subject === "LGBTQIA+ Interest") {
+      setActivePage("LGBTQIA");
+    } else if (subject === "Limited Edition/Collectibles") {
+      setActivePage("LIMITED_EDITION");
+    } else if (subject === "Literary Fiction") {
+      setActivePage("LITERARY_FICTION");
     } else {
       return;
     }
@@ -91,21 +115,27 @@ export default function SubjectsSidebar({ setActivePage }) {
     "Forthcoming",
     "Gift Books",
     "Gracie Belle",
+    "Infamous Books",
+    "Kaylie Jones Books",
+    "Latin American Interest",
+    "LGBTQIA+ Interest",
+    "Limited Edition/Collectibles",
+    "Literary Fiction",
   ];
 
   return (
     <aside className="w-full lg:w-[225px] shrink-0 space-y-4">
 
-      {/* Box 1: Featured Black Interest */}
+      {/* ======================================
+          BOX 1: FEATURED BOOKS
+      ====================================== */}
+
       <div className="bg-white border border-gray-300 shadow-md">
 
         <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2 flex items-center justify-between gap-2">
 
           <h2 className="text-xs font-bold text-[#222]">
-            <span className="font-normal text-gray-600">
-              Featured:
-            </span>{" "}
-            Black Interest
+            Featured Books
           </h2>
 
           <button
@@ -121,63 +151,75 @@ export default function SubjectsSidebar({ setActivePage }) {
         <div className="divide-y divide-gray-200">
 
           {featuredBooks.map((book) => (
-            <div key={book.id} className="p-2.5 text-[11px]">
+            <div
+              key={book.id}
+              className="p-2.5 text-[11px]"
+            >
 
               <div className="flex gap-2 items-start justify-between">
 
-                <div className="flex-1">
+                {/* BOOK INFORMATION */}
+                <div className="flex-1 min-w-0">
 
+                  {/* BOOK TITLE */}
                   <a
-                    href="#book"
+                    href={book.amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-bold text-[#9e1b1b] hover:underline leading-snug block mb-1"
                   >
                     {book.title}
                   </a>
 
-                  {book.links.length > 0 && (
-                    <div className="mb-1.5 text-[10.5px] text-gray-700 space-y-0.5">
+                  {/* AUTHOR NAME */}
+                  <p className="text-[10px] text-gray-500 mb-1.5">
+                    By {book.author}
+                  </p>
 
-                      {book.links.map((store) => (
-                        <div key={store}>
-                          Order on{" "}
-                          <a
-                            href="#order"
-                            className="text-[#9e1b1b] hover:underline"
-                          >
-                            {store}
-                          </a>
-                        </div>
-                      ))}
-
-                    </div>
-                  )}
-
+                  {/* DESCRIPTION */}
                   <p className="text-gray-700 leading-snug">
                     {book.desc}
                   </p>
 
                 </div>
 
-                <img
-                  src={book.img}
-                  alt={book.title}
-                  className="w-16 h-20 object-cover border border-gray-200 shrink-0"
-                />
+                {/* BOOK COVER */}
+                <a
+                  href={book.amazonLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0"
+                  aria-label={`View ${book.title}`}
+                >
+                  <img
+                    src={encodeURI(book.img)}
+                    alt={`${book.title} book cover`}
+                    className="w-16 h-20 object-contain border border-gray-200 hover:opacity-90 transition-opacity"
+                    loading="lazy"
+                  />
+                </a>
 
               </div>
+
             </div>
           ))}
 
         </div>
+
       </div>
 
-      {/* Box 2: Subjects */}
+      {/* ======================================
+          BOX 2: SUBJECTS
+      ====================================== */}
+
       <div className="bg-white border border-gray-300 shadow-md">
 
         <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
+
           <h2 className="text-sm font-bold text-[#222]">
             Subjects
           </h2>
+
         </div>
 
         <ul className="px-3 py-3 space-y-1.5 text-[12px]">

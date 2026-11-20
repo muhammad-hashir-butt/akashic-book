@@ -1,4 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+// Existing Subject Pages
+import BlackInterest from "../BooksPages/BlackInterest";
+import BlackSheep from "../BooksPages/BlackSheep";
+import CaribbeanInterest from "../BooksPages/CaribbeanInterest";
+import Childrens from "../BooksPages/Childrens";
+import DigitsEBooks from "../BooksPages/DigitsEBooks";
+import EdgeOfSports from "../BooksPages/EdgeOfSports";
+import EnemyBooks from "../BooksPages/EnemyBooks";
+import Forthcoming from "../BooksPages/Forthcoming";
+import GiftBooks from "../BooksPages/GiftBooks";
+import GracieBelle from "../BooksPages/GracieBelle";
+import InfamousBooks from "../BooksPages/InfamousBooks";
+import KaylieJones from "../BooksPages/KaylieJones";
+import LatinAmerican from "../BooksPages/LatinAmericanInterest";
+import LGBTQIA from "../BooksPages/LGBTQIA";
+import LimitedEdition from "../BooksPages/LimitedEdition";
+import LiteraryFiction from "../BooksPages/LiteraryFiction";
+
+// ======================================
+// SUBJECTS
+// ======================================
 
 const allSubjects = [
   "Black Interest",
@@ -17,22 +39,35 @@ const allSubjects = [
   "LGBTQIA+ Interest",
   "Limited Edition/Collectibles",
   "Literary Fiction",
-  "LyricPop",
-  "Middle East & Asian Interest",
-  "Music/Popular Culture/Art",
-  "Mysteries & Crime",
-  "New Releases",
-  "Noir Series",
-  "Nonfiction",
-  "Open Lens",
-  "Peekash Press",
-  "Poetry",
-  "Politics/Current Affairs",
-  "Sale",
-  "Science Fiction/Fantasy",
-  "Women's Studies",
-  "Young Adult/Middle Grade",
+  
 ];
+
+// ======================================
+// EXISTING BOOK PAGE COMPONENTS
+// ======================================
+
+const subjectBookPages = {
+  "Black Interest": BlackInterest,
+  "Black Sheep": BlackSheep,
+  "Caribbean Interest": CaribbeanInterest,
+  "Children's": Childrens,
+  "Digits & E-Books": DigitsEBooks,
+  "Edge of Sports": EdgeOfSports,
+  "Enemy Books": EnemyBooks,
+  Forthcoming: Forthcoming,
+  "Gift Books": GiftBooks,
+  "Gracie Belle": GracieBelle,
+  "Infamous Books": InfamousBooks,
+  "Kaylie Jones Books": KaylieJones,
+  "Latin American Interest": LatinAmerican,
+  "LGBTQIA+ Interest": LGBTQIA,
+  "Limited Edition/Collectibles": LimitedEdition,
+  "Literary Fiction": LiteraryFiction,
+};
+
+// ======================================
+// POPULAR TAGS
+// ======================================
 
 const popularTags = [
   { name: "Noir Series", size: "text-base font-bold" },
@@ -60,43 +95,43 @@ const popularTags = [
   { name: "young adult", size: "text-[10px]" },
 ];
 
-const subjectCovers = [
-  { name: "Black Interest", img: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=200&q=80" },
-  { name: "Black Sheep", img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&q=80" },
-  { name: "Caribbean Interest", img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=200&q=80" },
-  { name: "Children's", img: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=200&q=80" },
-  { name: "Digits & E-Books", img: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=200&q=80" },
-  { name: "Edge of Sports", img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200&q=80" },
-  { name: "Featured Digits", img: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=200&q=80" },
-  { name: "Gift Books", img: "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=200&q=80" },
-  { name: "Gracie Belle", img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=200&q=80" },
-  { name: "Infamous Books", img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=200&q=80" },
-  { name: "Kaylie Jones Books", img: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=200&q=80" },
-  { name: "Latin American Interest", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=200&q=80" },
-  { name: "LGBTQIA+ Interest", img: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=200&q=80" },
-  { name: "Limited Edition/Collectibles", img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=200&q=80" },
-  { name: "Literary Fiction", img: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=200&q=80" },
-  { name: "LyricPop", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&q=80" },
-  { name: "Middle East & Asian Interest", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=200&q=80" },
-  { name: "Music/Popular Culture/Art", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&q=80" },
-  { name: "Mysteries & Crime", img: "https://images.unsplash.com/photo-1509266272358-7701da638078?w=200&q=80" },
-  { name: "New Releases", img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200&q=80" },
-  { name: "Noir Series", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=200&q=80" },
-  { name: "Nonfiction", img: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=200&q=80" },
-  { name: "Oddities KJB", img: "https://images.unsplash.com/photo-1510172951991-856a654063f9?w=200&q=80" },
-  { name: "Open Lens", img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=200&q=80" },
-  { name: "Peekash Press", img: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=200&q=80" },
-  { name: "Poetry", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=200&q=80" },
-  { name: "Politics/Current Affairs", img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=200&q=80" },
-  { name: "Sale", img: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=200&q=80", isSale: true },
-  { name: "Women's Studies", img: "https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?w=200&q=80" },
-  { name: "Young Adult/Middle Grade", img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&q=80" },
-];
+// ======================================
+// ALPHABET
+// ======================================
 
 const alphabet = [
-  "#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+  "#",
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
 ];
+
+// ======================================
+// NEWS
+// ======================================
 
 const sidebarNews = [
   "SCAM ALERT!!!",
@@ -106,6 +141,10 @@ const sidebarNews = [
   "Exclusive Gina Gershon Preorder Package",
   "Exclusive Robyn Hitchcock Preorder Package",
 ];
+
+// ======================================
+// EVENTS
+// ======================================
 
 const events = [
   {
@@ -119,236 +158,537 @@ const events = [
     id: 2,
     title: "Tiphanie Yanique — Miami Book Fair (Miami, FL)",
     date: "11/21/26, 12:30pm",
-    desc: "Noir, Myth, and the Island Fantastic panel featuring Tiphanie Yanique.",
+    desc:
+      "Noir, Myth, and the Island Fantastic panel featuring Tiphanie Yanique.",
     img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
   },
 ];
 
-// Reusable A-Z Alphabet Bar
+// ======================================
+// CHECK BOOK TITLE AGAINST LETTER
+// ======================================
+
+function matchesLetter(title, letter) {
+  const cleanTitle = title.trim().replace(/^[^a-zA-Z0-9]+/, "");
+
+  if (letter === "#") {
+    return /^[0-9]/.test(cleanTitle);
+  }
+
+  return cleanTitle.toUpperCase().startsWith(letter);
+}
+
+// ======================================
+// A-Z ALPHABET BAR
+// ======================================
+
 function BrowseByTitleBar({ selectedLetter, onSelectLetter }) {
   return (
     <div className="text-center py-2">
-      <p className="text-[11px] font-bold text-gray-700 mb-1">Browse by Title</p>
+
+      <p className="text-[11px] font-bold text-gray-700 mb-1">
+        Browse by Title
+      </p>
+
       <div className="flex flex-wrap items-center justify-center gap-1 text-[10.5px]">
-        {alphabet.map((letter, idx) => (
+
+        {alphabet.map((letter, index) => (
           <React.Fragment key={letter}>
+
             <button
+              type="button"
               onClick={() => onSelectLetter(letter)}
-              className={`cursor-pointer hover:underline ${
-                selectedLetter === letter
-                  ? "font-extrabold text-black underline"
-                  : "text-[#9e1b1b]"
-              }`}
+              className={`
+                cursor-pointer
+                hover:underline
+                ${
+                  selectedLetter === letter
+                    ? "font-extrabold text-black underline"
+                    : "text-[#9e1b1b]"
+                }
+              `}
             >
               {letter}
             </button>
-            {idx < alphabet.length - 1 && (
+
+            {index < alphabet.length - 1 && (
               <span className="text-gray-400">|</span>
             )}
+
           </React.Fragment>
         ))}
+
       </div>
+
     </div>
   );
 }
 
+// ======================================
+// BOOK COLLECTION
+// REUSES EXISTING SUBJECT BOOK PAGES
+// ======================================
+
+function BookCollection({
+  subjectName,
+  BookComponent,
+  selectedLetter,
+  onSubjectClick,
+}) {
+  const collectionRef = useRef(null);
+
+  const [matchingCount, setMatchingCount] = useState(null);
+
+  useEffect(() => {
+    const container = collectionRef.current;
+
+    if (!container) return;
+
+    const bookCards = container.querySelectorAll("article");
+
+    let count = 0;
+
+    bookCards.forEach((card) => {
+      // Existing subject pages show book titles in h2 elements.
+      const titleElement = card.querySelector("h2");
+
+      const bookTitle = titleElement?.textContent?.trim() || "";
+
+      const isMatch =
+        !selectedLetter || matchesLetter(bookTitle, selectedLetter);
+
+      card.style.display = isMatch ? "" : "none";
+
+      if (isMatch) {
+        count += 1;
+      }
+    });
+
+    setMatchingCount(count);
+  }, [selectedLetter, BookComponent]);
+
+  if (selectedLetter && matchingCount === 0) {
+    return (
+      <div ref={collectionRef} className="hidden" aria-hidden="true">
+        <BookComponent />
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-7">
+
+      {/* Subject Heading */}
+      <div className="flex items-center justify-between gap-3 mb-3 pb-2 border-b border-gray-200">
+
+        <h2 className="text-[13px] font-bold text-[#333]">
+          {subjectName}
+        </h2>
+
+        <button
+          type="button"
+          onClick={() => onSubjectClick(subjectName)}
+          className="text-[11px] font-semibold text-[#9e1b1b] hover:underline shrink-0"
+        >
+          View All &raquo;
+        </button>
+
+      </div>
+
+      {/* Original Book Cards */}
+      <div ref={collectionRef}>
+        <BookComponent />
+      </div>
+
+    </div>
+  );
+}
+
+// ======================================
+// MAIN BOOKS PAGE
+// ======================================
+
 export default function BooksPage() {
   const [selectedFilter, setSelectedFilter] = useState("");
 
+  const [selectedLetter, setSelectedLetter] = useState("");
+
+  const handleSubjectClick = (subject) => {
+    setSelectedFilter(subject);
+
+    setSelectedLetter("");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLetterClick = (letter) => {
+    setSelectedLetter(letter);
+
+    setSelectedFilter("");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleClearFilter = () => {
+    setSelectedFilter("");
+
+    setSelectedLetter("");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const SelectedSubjectPage = subjectBookPages[selectedFilter];
+
+  const isFiltering = Boolean(selectedFilter || selectedLetter);
+
   return (
     <div className="flex flex-col lg:flex-row items-start gap-4">
-      
-      {/* LEFT SIDEBAR: Catalog, Subjects & Popular Catalog Tags */}
+
+      {/* ======================================
+          LEFT SIDEBAR
+      ====================================== */}
+
       <aside className="w-full lg:w-[225px] shrink-0 space-y-4">
-        
-        {/* Box 1: Catalog */}
+
+        {/* Catalog */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Catalog</h2>
+            <h2 className="text-xs font-bold text-[#222]">
+              Catalog
+            </h2>
           </div>
+
           <ul className="px-3 py-2.5 space-y-1 text-[11px]">
-            <li className="text-gray-700 font-semibold">Full Catalog</li>
+
+            <li className="text-gray-700 font-semibold">
+              Full Catalog
+            </li>
+
             <li>
-              <a href="#authors-list" className="text-[#9e1b1b] hover:underline">
+              <a
+                href="#authors-list"
+                className="text-[#9e1b1b] hover:underline"
+              >
                 List of Authors
               </a>
             </li>
-            <li>
-              <a href="#download-pdf" className="text-[#9e1b1b] hover:underline">
-                Download Catalog (PDF)
-              </a>
-            </li>
+
+            
+
           </ul>
+
         </div>
 
-        {/* Box 2: Subjects */}
+        {/* Subjects */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Subjects</h2>
+            <h2 className="text-xs font-bold text-[#222]">
+              Subjects
+            </h2>
           </div>
+
           <ul className="px-3 py-2.5 space-y-1 text-[11px]">
+
             {allSubjects.map((subject) => (
               <li key={subject}>
+
                 <button
-                  onClick={() => setSelectedFilter(subject)}
-                  className="text-[#9e1b1b] hover:underline hover:text-black text-left cursor-pointer"
+                  type="button"
+                  onClick={() => handleSubjectClick(subject)}
+                  className={`
+                    text-left
+                    cursor-pointer
+                    hover:underline
+                    hover:text-black
+                    ${
+                      selectedFilter === subject
+                        ? "font-bold text-black"
+                        : "text-[#9e1b1b]"
+                    }
+                  `}
                 >
                   {subject}
                 </button>
+
               </li>
             ))}
+
           </ul>
+
         </div>
 
-        {/* Box 3: Popular Catalog Tags */}
+        {/* Popular Catalog Tags */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Popular Catalog Tags</h2>
+            <h2 className="text-xs font-bold text-[#222]">
+              Popular Catalog Tags
+            </h2>
           </div>
+
           <div className="p-3 flex flex-wrap items-baseline gap-x-1.5 gap-y-1 leading-tight">
+
             {popularTags.map((tag) => (
               <button
                 key={tag.name}
-                onClick={() => setSelectedFilter(tag.name)}
-                className={`text-[#9e1b1b] hover:underline cursor-pointer ${tag.size}`}
+                type="button"
+                onClick={() => handleSubjectClick(tag.name)}
+                className={`
+                  text-[#9e1b1b]
+                  hover:underline
+                  cursor-pointer
+                  ${tag.size}
+                `}
               >
                 {tag.name}
               </button>
             ))}
+
           </div>
+
         </div>
 
       </aside>
 
-      {/* CENTER WHITE CONTENT: Browse by Title + Browse by Subject */}
-      <section className="flex-1 bg-white p-5 shadow-lg border border-gray-300 w-full">
-        
-        {/* Top A-Z Browse Bar */}
+      {/* ======================================
+          CENTER BOOK CONTENT
+      ====================================== */}
+
+      <section className="flex-1 min-w-0 bg-white p-5 shadow-lg border border-gray-300 w-full">
+
+        {/* TOP A-Z ALPHABET BAR */}
         <BrowseByTitleBar
-          selectedLetter={selectedFilter}
-          onSelectLetter={(letter) => setSelectedFilter(letter)}
+          selectedLetter={selectedLetter}
+          onSelectLetter={handleLetterClick}
         />
 
-        {/* Active Filter Notification */}
-        {selectedFilter && (
-          <div className="my-3 px-3 py-1.5 bg-[#f7f6f2] border border-gray-300 text-xs flex items-center justify-between">
+        {/* ACTIVE FILTER */}
+        {isFiltering && (
+          <div className="my-3 px-3 py-2 bg-[#f7f6f2] border border-gray-300 text-xs flex items-center justify-between gap-3">
+
             <span>
               Filtering catalog by:{" "}
-              <strong className="text-[#9e1b1b]">{selectedFilter}</strong>
+
+              <strong className="text-[#9e1b1b]">
+
+                {selectedLetter
+                  ? selectedLetter === "#"
+                    ? "Titles starting with numbers"
+                    : `Titles starting with ${selectedLetter}`
+                  : selectedFilter}
+
+              </strong>
             </span>
+
             <button
-              onClick={() => setSelectedFilter("")}
-              className="text-[#9e1b1b] font-bold hover:underline cursor-pointer"
+              type="button"
+              onClick={handleClearFilter}
+              className="text-[#9e1b1b] font-bold hover:underline cursor-pointer shrink-0"
             >
               Clear Filter
             </button>
+
           </div>
         )}
 
-        {/* Section Heading */}
-        <h2 className="text-sm text-gray-800 mt-4 mb-5">Browse by Subject</h2>
+        {/* ======================================
+            SUBJECT FILTER RESULTS
+        ====================================== */}
 
-        {/* Subject Covers Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-6">
-          {subjectCovers.map((item) => (
-            <button
-              key={item.name}
-              onClick={() => setSelectedFilter(item.name)}
-              className="group flex flex-col items-center text-center cursor-pointer"
-            >
-              <div className="relative w-24 h-32 bg-gray-100 border border-gray-300 shadow-sm overflow-hidden mb-1.5 group-hover:shadow-md transition-shadow">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+        {selectedFilter ? (
+
+          SelectedSubjectPage ? (
+
+            <div className="mt-4">
+
+              <SelectedSubjectPage />
+
+            </div>
+
+          ) : (
+
+            <div className="py-10 text-center">
+
+              <h2 className="text-sm font-semibold text-gray-700">
+                {selectedFilter}
+              </h2>
+
+              <p className="text-xs text-gray-500 mt-2">
+                No books have been added to this category yet.
+              </p>
+
+            </div>
+
+          )
+
+        ) : (
+
+          /* ======================================
+              ALL BOOKS / ALPHABET FILTER
+          ====================================== */
+
+          <div className="mt-4">
+
+            <h2 className="text-sm text-gray-800 mb-5">
+
+              {selectedLetter
+                ? selectedLetter === "#"
+                  ? "Books Starting With Numbers"
+                  : `Books Starting With "${selectedLetter}"`
+                : "Browse All Books"}
+
+            </h2>
+
+            {/* ALL 16 BOOK COLLECTIONS */}
+            {Object.entries(subjectBookPages).map(
+              ([subjectName, SubjectComponent]) => (
+
+                <BookCollection
+                  key={`${subjectName}-${selectedLetter}`}
+                  subjectName={subjectName}
+                  BookComponent={SubjectComponent}
+                  selectedLetter={selectedLetter}
+                  onSubjectClick={handleSubjectClick}
                 />
-                {item.isSale && (
-                  <span className="absolute top-0 left-0 bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.5 uppercase">
-                    Sale
-                  </span>
-                )}
-              </div>
-              <span className="text-[10.5px] text-[#9e1b1b] group-hover:underline leading-tight">
-                {item.name}
-              </span>
-            </button>
-          ))}
-        </div>
 
-        {/* Dotted Divider */}
+              )
+            )}
+
+          </div>
+
+        )}
+
+        {/* BOTTOM DIVIDER */}
         <hr className="border-t border-dotted border-gray-300 my-7" />
 
-        {/* Bottom A-Z Browse Bar */}
+        {/* BOTTOM A-Z ALPHABET BAR */}
         <BrowseByTitleBar
-          selectedLetter={selectedFilter}
-          onSelectLetter={(letter) => setSelectedFilter(letter)}
+          selectedLetter={selectedLetter}
+          onSelectLetter={handleLetterClick}
         />
 
       </section>
 
-      {/* RIGHT SIDEBAR: News & Features + Upcoming Events */}
+      {/* ======================================
+          RIGHT SIDEBAR
+      ====================================== */}
+
       <aside className="w-full lg:w-[235px] shrink-0 space-y-4">
-        
-        {/* Box 1: News & Features */}
+
+        {/* NEWS & FEATURES */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">News & Features</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              News & Features
+            </h2>
+
           </div>
+
           <div className="p-3 text-[11px]">
+
             <ul className="space-y-1.5 list-disc pl-4 text-[#9e1b1b] mb-3">
+
               {sidebarNews.map((item) => (
                 <li key={item}>
-                  <a href="#news" className="hover:underline">
+
+                  <a
+                    href="#news"
+                    className="hover:underline"
+                  >
                     {item}
                   </a>
+
                 </li>
               ))}
+
             </ul>
+
             <a
               href="#more-news"
               className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline"
             >
               More News & Features &raquo;
             </a>
+
           </div>
+
         </div>
 
-        {/* Box 2: Upcoming Events */}
+        {/* UPCOMING EVENTS */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Upcoming Events</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              Upcoming Events
+            </h2>
+
           </div>
 
           <div className="divide-y divide-gray-200">
+
             {events.map((event) => (
-              <div key={event.id} className="p-3 flex gap-2.5 items-start">
+
+              <div
+                key={event.id}
+                className="p-3 flex gap-2.5 items-start"
+              >
+
                 <img
                   src={event.img}
                   alt={event.title}
                   className="w-14 h-20 object-cover border border-gray-200 shrink-0"
                 />
+
                 <div className="text-[11px]">
+
                   <a
                     href="#event"
                     className="font-bold text-[#9e1b1b] hover:underline leading-snug block mb-1"
                   >
                     {event.title}
                   </a>
-                  <p className="text-gray-700 font-medium mb-1">{event.date}</p>
-                  <p className="text-gray-600 leading-snug">{event.desc}</p>
+
+                  <p className="text-gray-700 font-medium mb-1">
+                    {event.date}
+                  </p>
+
+                  <p className="text-gray-600 leading-snug">
+                    {event.desc}
+                  </p>
+
                 </div>
+
               </div>
+
             ))}
+
           </div>
 
           <div className="px-3 py-2 border-t border-gray-200">
+
             <a
               href="#more-events"
               className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline"
             >
               More Events &raquo;
             </a>
+
           </div>
+
         </div>
 
       </aside>
