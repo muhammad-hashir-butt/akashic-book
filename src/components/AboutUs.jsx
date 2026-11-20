@@ -95,16 +95,18 @@ export default function AboutUs({ setActivePage }) {
 
             <div className="w-16 h-1 bg-[#9e1b1b] mb-4" />
 
-            <p className="text-[13px] text-gray-700 leading-[1.9] mb-4">
-              Thundersmouth Press is an independent New York-based
-              book publisher recognized for its distinctive
-              contribution to the literary world. With a publishing
-              identity rooted in creative expression, independent
-              thought, and original storytelling, the press is
-              associated with a diverse range of literary works,
-              including counterculture fiction, poetry, music
-              biographies, and political titles.
-            </p>
+            
+<p className="text-[13px] text-gray-700 leading-[1.9] mb-4">
+  Founded in 1982, Thundersmouth Press is an independent
+  New York-based book publisher recognized for its distinctive
+  contribution to the literary world. With a publishing
+  identity rooted in creative expression, independent
+  thought, and original storytelling, the press is
+  associated with a diverse range of literary works,
+  including counterculture fiction, poetry, music
+  biographies, and political titles.
+</p>
+
 
             <p className="text-[13px] text-gray-700 leading-[1.9]">
               Our publishing interests reflect an appreciation
