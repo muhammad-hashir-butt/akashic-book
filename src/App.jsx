@@ -291,7 +291,7 @@ export default function App() {
 
           <AuthorsPage setActivePage={setActivePage} />
 
-        ) : activePage === "NEWS & FEATURES" ? (
+        ) : activePage === "SERVICES"  ? (
 
           <NewsPage setActivePage={setActivePage} />
 

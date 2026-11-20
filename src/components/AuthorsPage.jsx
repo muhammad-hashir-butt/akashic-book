@@ -27,31 +27,6 @@ const allSubjects = [
 // POPULAR TAGS — EXISTING LIST
 // ======================================
 
-const popularTags = [
-  { name: "Noir Series", size: "text-base font-bold" },
-  { name: "Akashic Noir Series", size: "text-xs" },
-  { name: "New York City", size: "text-xs" },
-  { name: "noir", size: "text-[11px]" },
-  { name: "Jamaica", size: "text-[11px]" },
-  { name: "mystery", size: "text-[11px]" },
-  { name: "debut", size: "text-[11px]" },
-  { name: "children's picture book", size: "text-[10px]" },
-  { name: "fiction", size: "text-[10px]" },
-  { name: "crime", size: "text-[10px]" },
-  { name: "Kaylie Jones Books", size: "text-[10px]" },
-  { name: "Black Sheep", size: "text-[10px]" },
-  { name: "Chris Abani", size: "text-[10px]" },
-  { name: "memoir", size: "text-[10px]" },
-  { name: "Caribbean", size: "text-[10px]" },
-  { name: "Kaylie Jones", size: "text-[10px]" },
-  { name: "literary fiction", size: "text-[10px]" },
-  { name: "music", size: "text-[10px]" },
-  { name: "Kwame Dawes", size: "text-[10px]" },
-  { name: "historical fiction", size: "text-[10px]" },
-  { name: "punk rock", size: "text-[10px]" },
-  { name: "LyricPop", size: "text-[10px]" },
-  { name: "young adult", size: "text-[10px]" },
-];
 
 // ======================================
 // ALL BOOK AUTHORS + AMAZON LINKS
@@ -393,14 +368,6 @@ export default function AuthorsPage({ setActivePage }) {
               &raquo; List of Authors
             </li>
 
-            <li>
-              <a
-                href="#download-pdf"
-                className="text-[#9e1b1b] hover:underline"
-              >
-                Download Catalog (PDF)
-              </a>
-            </li>
 
           </ul>
 
@@ -435,31 +402,10 @@ export default function AuthorsPage({ setActivePage }) {
 
         </div>
 
-        {/* BOX 3: POPULAR CATALOG TAGS */}
-        <div className="bg-white border border-gray-300 shadow-md">
+        
+          
 
-          <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">
-              Popular Catalog Tags
-            </h2>
-          </div>
-
-          <div className="p-3 flex flex-wrap items-baseline gap-x-1.5 gap-y-1 leading-tight">
-
-            {popularTags.map((tag) => (
-              <button
-                key={tag.name}
-                type="button"
-                onClick={() => setActivePage?.("BOOKS")}
-                className={`text-[#9e1b1b] hover:underline cursor-pointer ${tag.size}`}
-              >
-                {tag.name}
-              </button>
-            ))}
-
-          </div>
-
-        </div>
+        
 
       </aside>
 
@@ -716,60 +662,15 @@ export default function AuthorsPage({ setActivePage }) {
 
       </section>
 
-      {/* ======================================
-          RIGHT SIDEBAR
-      ====================================== */}
+      
 
-      <aside className="w-full lg:w-[235px] shrink-0 space-y-4">
-
-        {/* NEWS & FEATURES */}
-        <div className="bg-white border border-gray-300 shadow-md">
-
-          <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-
-            <h2 className="text-xs font-bold text-[#222]">
-              News & Features
-            </h2>
-
-          </div>
-
-          <div className="p-3 text-[11px]">
-
-            <ul className="space-y-1.5 list-disc pl-4 text-[#9e1b1b] mb-3">
-
-              {sidebarNews.map((item) => (
-
-                <li key={item}>
-
-                  <a
-                    href="#news"
-                    className="hover:underline"
-                  >
-                    {item}
-                  </a>
-
-                </li>
-
-              ))}
-
-            </ul>
-
-            <a
-              href="#more-news"
-              className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline"
-            >
-              More News & Features &raquo;
-            </a>
-
-          </div>
-
-        </div>
+      
 
       
 
         
 
-      </aside>
+      
 
     </div>
   );

@@ -103,7 +103,7 @@ export default function HeroCarousel() {
           <div className="relative w-28 h-40 sm:w-32 sm:h-44 bg-[#1a1a1a] border-2 border-white/80 shadow-xl">
 
             <img
-              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80"
+              src="https://plus.unsplash.com/premium_photo-1775113885027-d0f57ce69c99?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Books and reading inspiration"
               className="w-full h-full object-cover"
             />

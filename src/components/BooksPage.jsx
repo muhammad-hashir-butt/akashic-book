@@ -70,29 +70,22 @@ const subjectBookPages = {
 // ======================================
 
 const popularTags = [
-  { name: "Noir Series", size: "text-base font-bold" },
-  { name: "Akashic Noir Series", size: "text-xs" },
-  { name: "New York City", size: "text-xs" },
-  { name: "noir", size: "text-[11px]" },
-  { name: "Jamaica", size: "text-[11px]" },
-  { name: "mystery", size: "text-[11px]" },
-  { name: "debut", size: "text-[11px]" },
-  { name: "children's picture book", size: "text-[10px]" },
-  { name: "fiction", size: "text-[10px]" },
-  { name: "crime", size: "text-[10px]" },
-  { name: "Kaylie Jones Books", size: "text-[10px]" },
-  { name: "Black Sheep", size: "text-[10px]" },
-  { name: "Chris Abani", size: "text-[10px]" },
-  { name: "memoir", size: "text-[10px]" },
-  { name: "Caribbean", size: "text-[10px]" },
-  { name: "Kaylie Jones", size: "text-[10px]" },
-  { name: "literary fiction", size: "text-[10px]" },
-  { name: "music", size: "text-[10px]" },
-  { name: "Kwame Dawes", size: "text-[10px]" },
-  { name: "historical fiction", size: "text-[10px]" },
-  { name: "punk rock", size: "text-[10px]" },
-  { name: "LyricPop", size: "text-[10px]" },
-  { name: "young adult", size: "text-[10px]" },
+  { name: "Black Interest", size: "text-base font-bold" },
+  { name: "Black Sheep", size: "text-xs font-bold" },
+  { name: "Caribbean Interest", size: "text-xs" },
+  { name: "Children's Books", size: "text-xs" },
+  { name: "Digits & E-Books", size: "text-[11px]" },
+  { name: "Edge of Sports", size: "text-[11px]" },
+  { name: "Enemy Books", size: "text-[11px]" },
+  { name: "Forthcoming", size: "text-xs" },
+  { name: "Gift Books", size: "text-[11px]" },
+  { name: "Gracie Belle", size: "text-xs font-bold" },
+  { name: "Infamous Books", size: "text-[11px]" },
+  { name: "Kaylie Jones Books", size: "text-xs" },
+  { name: "Latin American Interest", size: "text-xs font-bold" },
+  { name: "LGBTQIA+ Interest", size: "text-[11px]" },
+  { name: "Limited Edition/Collectibles", size: "text-xs" },
+  { name: "Literary Fiction", size: "text-base font-bold" },
 ];
 
 // ======================================
@@ -134,12 +127,14 @@ const alphabet = [
 // ======================================
 
 const sidebarNews = [
-  "SCAM ALERT!!!",
-  "Exclusive Chuck D Preorder",
-  "Exclusive Natasha Howard Preorder Package",
-  "Exclusive David Duchovny Preorder Package",
-  "Exclusive Gina Gershon Preorder Package",
-  "Exclusive Robyn Hitchcock Preorder Package",
+  "Explore Black Interest Books",
+  "Discover Black Sheep Collection",
+  "Browse Caribbean Interest Books",
+  "Explore Children's Books",
+  "Discover Latin American Literature",
+  "Explore LGBTQIA+ Interest Books",
+  "Browse Limited Edition & Collectibles",
+  "Discover Literary Fiction",
 ];
 
 // ======================================
@@ -564,58 +559,58 @@ export default function BooksPage() {
 
       </section>
 
-      {/* ======================================
-          RIGHT SIDEBAR
-      ====================================== */}
-
-      <aside className="w-full lg:w-[235px] shrink-0 space-y-4">
-
-        {/* NEWS & FEATURES */}
-        <div className="bg-white border border-gray-300 shadow-md">
-
-          <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-
-            <h2 className="text-xs font-bold text-[#222]">
-              News & Features
-            </h2>
-
-          </div>
-
-          <div className="p-3 text-[11px]">
-
-            <ul className="space-y-1.5 list-disc pl-4 text-[#9e1b1b] mb-3">
-
-              {sidebarNews.map((item) => (
-                <li key={item}>
-
-                  <a
-                    href="#news"
-                    className="hover:underline"
-                  >
-                    {item}
-                  </a>
-
-                </li>
-              ))}
-
-            </ul>
-
-            <a
-              href="#more-news"
-              className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline"
-            >
-              More News & Features &raquo;
-            </a>
-
-          </div>
-
-        </div>
-
       
+{/* ======================================
+    RIGHT SIDEBAR
+====================================== */}
 
-        
+<aside className="w-full lg:w-[235px] shrink-0 space-y-4">
 
-      </aside>
+  {/* EXPLORE BOOK CATEGORIES */}
+  <div className="bg-white border border-gray-300 shadow-md">
+
+    <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
+      <h2 className="text-xs font-bold text-[#222]">
+        Explore Book Categories
+      </h2>
+    </div>
+
+    <div className="p-3 text-[11px]">
+
+      <p className="text-gray-600 mb-3 leading-relaxed">
+        Discover stories, fresh perspectives, and books across our collection.
+      </p>
+
+      <ul className="space-y-2 list-disc pl-4 text-[#9e1b1b]">
+
+        {allSubjects.map((subject) => (
+          <li key={subject}>
+            <button
+              type="button"
+              onClick={() => setSelectedFilter(subject)}
+              className="text-left hover:underline cursor-pointer"
+            >
+              {subject}
+            </button>
+          </li>
+        ))}
+
+      </ul>
+
+      <div className="border-t border-gray-200 mt-4 pt-3">
+        <button
+          type="button"
+          onClick={() => setSelectedFilter("")}
+          className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline cursor-pointer"
+        >
+          Browse Full Collection &raquo;
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</aside>
 
     </div>
   );

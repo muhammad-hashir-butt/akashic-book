@@ -1,403 +1,853 @@
 import React, { useState } from "react";
 
-const archiveMonths = [
-  "Select Month",
-  "November 2026",
-  "October 2026",
-  "September 2026",
-  "August 2026",
-  "July 2026",
-  "June 2026",
-  "May 2026",
-];
+// ======================================
+// THUNDERSMOUTH PRESS SERVICES
+// ======================================
 
-const newsCategories = [
-  { name: "Akashic In Good Company", indent: false },
-  { name: "Simon's Cat In Good Company", indent: true },
-  { name: "Akashic Insider", indent: false },
-  { name: "Are We Related?", indent: false },
-  { name: "Literary Lions", indent: false },
-  { name: "Music/Pop Culture/Art", indent: false },
-  { name: "News", indent: false },
-  { name: "Original Fiction", indent: false },
-  { name: "Duppy Thursday", indent: true },
-  { name: "Fri-SciFi", indent: true },
-  { name: "Mondays Are Murder", indent: true },
-  { name: "Sports & Justice", indent: true },
-  { name: "Terrible Twosdays", indent: true },
-  { name: "Thursdaze", indent: true },
-  { name: "Wilderness Wednesdays", indent: true },
-  { name: "Question of the Week", indent: false },
-  { name: "Short Story Month", indent: false },
-  { name: "Weekly Roundup", indent: false },
-];
-
-const popularPostTags = [
-  { name: "flash fiction", size: "text-xs font-bold" },
-  { name: "Mondays Are Murder", size: "text-xs font-bold" },
-  { name: "short fiction", size: "text-xs font-bold" },
-  { name: "Noir Series", size: "text-xs font-bold" },
-  { name: "Terrible Twosdays", size: "text-xs font-bold" },
-  { name: "Akashic Insider", size: "text-[11px] font-semibold" },
-  { name: "fiction", size: "text-[11px]" },
-  { name: "short story", size: "text-[11px]" },
-  { name: "Go the Fuck to Sleep", size: "text-[11px] font-semibold" },
-  { name: "GTFTS", size: "text-[11px]" },
-  { name: "Thursdaze", size: "text-[11px] font-semibold" },
-  { name: "New York", size: "text-[11px]" },
-  { name: "Noir", size: "text-[11px]" },
-  { name: "Caribbean", size: "text-[11px]" },
-  { name: "Akashic In Good Company", size: "text-[10.5px]" },
-  { name: "Drug Chronicles Series", size: "text-[10px]" },
-  { name: "Duppy Thursday", size: "text-[10px]" },
-  { name: "Murder", size: "text-[10px]" },
-  { name: "Caribbean Literature", size: "text-[10px]" },
-  { name: "Sale", size: "text-[10px]" },
-  { name: "Johnny Temple", size: "text-[10px]" },
-  { name: "Akashic Books", size: "text-[10px]" },
-  { name: "California", size: "text-[10px]" },
-  { name: "Kaylie Jones Books", size: "text-[10px]" },
-  { name: "Brooklyn", size: "text-[10px]" },
-];
-
-const newsPosts = [
+const services = [
   {
     id: 1,
-    title: "SCAM ALERT!!!",
-    excerpt:
-      "This year we've gotten hundreds (thousands?) of reports that scammers are impersonating (or inventing) Akashic Books staff . . .",
-    category: "Akashic Insider",
-    isScamAlert: true,
+    title: "Professional Manuscript Editing & Proofreading",
+    category: "Editorial Services",
+    description:
+      "Give your manuscript the attention it deserves with professional editing and proofreading support designed to improve clarity, consistency, and readability.",
+    image:
+      "https://images.unsplash.com/photo-1610050731821-f58da5e8abc6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    details: [
+      "A well-edited manuscript creates a stronger reading experience. Our editorial services focus on helping authors refine their writing while preserving their individual voice and creative vision.",
+      "Our editing process can address sentence structure, grammar, punctuation, spelling, readability, consistency, and the overall presentation of your manuscript.",
+      "Whether you're preparing a novel, memoir, nonfiction title, or another literary project, thoughtful editing can help transform your draft into a more polished manuscript.",
+    ],
+    features: [
+      "Grammar, spelling, and punctuation review",
+      "Sentence clarity and readability improvements",
+      "Consistency checks",
+      "Copyediting and proofreading support",
+      "Editorial feedback and manuscript refinement",
+    ],
   },
+
   {
     id: 2,
-    title: "Exclusive Chuck D Preorder",
-    excerpt:
-      "Now available for preorder: the latest 'naphic grovel' by rap legend Chuck D",
-    category: "Music/Pop Culture/Art",
-    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&q=80",
+    title: "Professional Book Cover Design",
+    category: "Design Services",
+    description:
+      "Create a memorable first impression with a visually appealing book cover that reflects your story, genre, and intended readership.",
+    image:
+      "https://images.unsplash.com/photo-1591286226007-1f9d5b0b7f35?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    details: [
+      "Your book cover is often the first thing a potential reader notices. A professionally designed cover helps communicate the tone, theme, and personality of your publication.",
+      "Our approach focuses on visual storytelling through thoughtful typography, imagery, color selection, and layout.",
+      "From contemporary fiction to memoirs, children's literature, and nonfiction, each genre benefits from a distinct visual presentation.",
+    ],
+    features: [
+      "Custom book cover concepts",
+      "Genre-appropriate visual direction",
+      "Typography and color selection",
+      "Paperback and hardcover cover layouts",
+      "E-book cover preparation",
+    ],
   },
+
   {
     id: 3,
-    title: "Exclusive Natasha Howard Preorder Package",
-    excerpt:
-      "Our exclusive preorder package for Natasha Howard's new WNBA memoir is now available for preorder",
-    category: "Sports & Justice",
-    img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
+    title: "Book Formatting & Interior Layout",
+    category: "Design Services",
+    description:
+      "Prepare your manuscript for publication with clean, consistent, and reader-friendly interior formatting for print and digital editions.",
+    image:
+      "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=600&q=85",
+    details: [
+      "A professionally formatted book creates a comfortable reading experience and gives your publication a polished appearance.",
+      "Interior formatting involves more than arranging text on pages. It requires careful attention to margins, spacing, chapter headings, page numbers, and typography.",
+      "Different publishing formats may require different layouts. Print books and e-books each have their own technical and presentation requirements.",
+    ],
+    features: [
+      "Paperback interior formatting",
+      "Hardcover interior formatting",
+      "Chapter heading and typography styling",
+      "Page numbering and margin adjustments",
+      "Digital reading format preparation",
+    ],
   },
+
   {
     id: 4,
-    title: "Exclusive David Duchovny Preorder Package",
-    excerpt:
-      "The new paperback edition of David Duchovny's debut poetry collection, About Time, is now available for preorder.",
-    category: "News",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
+    title: "Self-Publishing Assistance",
+    category: "Publishing Services",
+    description:
+      "Navigate the publishing process with practical guidance and support, from manuscript preparation to publication setup.",
+    image:
+      "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=600&q=85",
+    details: [
+      "Self-publishing gives authors an opportunity to bring their work to readers while making important decisions about their publishing journey.",
+      "The process involves multiple stages, including manuscript preparation, design, formatting, metadata, and publication setup.",
+      "Thundersmouth Press aims to make the process easier to understand through organized publishing assistance and practical guidance.",
+    ],
+    features: [
+      "Publishing preparation guidance",
+      "Book metadata organization",
+      "Title and description preparation",
+      "Print and digital edition setup support",
+      "Publication workflow assistance",
+    ],
   },
+
   {
     id: 5,
-    title: "Exclusive Gina Gershon Preorder Package",
-    excerpt:
-      "Gina Gershon's preorder package for her new memoir AlphaPussy is now available!",
-    category: "Akashic Insider",
-    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80",
+    title: "E-Book Publishing & Digital Preparation",
+    category: "Publishing Services",
+    description:
+      "Prepare your book for digital readers with professional e-book formatting and publishing support.",
+    image:
+      "https://images.unsplash.com/photo-1555631545-9dc21031669b?q=80&w=992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    details: [
+      "E-books provide readers with a convenient way to discover and enjoy literature across a variety of digital devices.",
+      "Preparing a manuscript for electronic publication requires attention to formatting, navigation, readability, and compatibility with digital reading platforms.",
+      "Our digital publishing support focuses on helping authors prepare their content for an accessible and enjoyable reading experience.",
+    ],
+    features: [
+      "E-book manuscript preparation",
+      "Digital formatting guidance",
+      "Table of contents and navigation",
+      "E-book cover compatibility",
+      "Digital publication setup support",
+    ],
   },
+
   {
     id: 6,
-    title: "Exclusive Robyn Hitchcock Preorder Package",
-    excerpt:
-      "The preorder package for Robyn Hitchcock's memoir Stranded in the Future is now available for preorder!",
-    category: "Music/Pop Culture/Art",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+    title: "Book Marketing & Promotion",
+    category: "Marketing Services",
+    description:
+      "Build awareness for your publication with marketing strategies that help introduce your book to potential readers.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=85",
+    details: [
+      "Publishing a book is an important milestone, but helping readers discover it is another essential part of the journey.",
+      "Book marketing focuses on presenting the right message to an appropriate audience through relevant promotional channels.",
+      "A thoughtful marketing approach can include author positioning, promotional content, online visibility, and audience engagement.",
+    ],
+    features: [
+      "Book marketing strategy",
+      "Promotional content planning",
+      "Audience research and positioning",
+      "Social media promotional guidance",
+      "Book launch campaign planning",
+    ],
   },
+
   {
     id: 7,
-    title: "Now Available: Hey Yang, Where's My Thousand Bucks?",
-    excerpt:
-      "Andrew Yang's new essay collection Hey Yang, Where's My Thousand Bucks? is now available for preorder!",
-    category: "News",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+    title: "Author Branding & Online Presence",
+    category: "Marketing Services",
+    description:
+      "Develop a recognizable author identity and create a consistent presentation across your online platforms.",
+    image:
+      "https://images.unsplash.com/photo-1783538480867-246ae630c02f?q=80&w=692&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    details: [
+      "An author's identity extends beyond a single publication. Readers often connect with the person behind the story as well as the book itself.",
+      "Author branding brings together your professional biography, visual identity, writing interests, and public presentation.",
+      "A consistent online presence can help readers recognize your work and explore your publications more easily.",
+    ],
+    features: [
+      "Author biography development",
+      "Author brand positioning",
+      "Online profile presentation",
+      "Consistent messaging and visual identity",
+      "Author visibility planning",
+    ],
   },
+
   {
     id: 8,
-    title: "Akashic Remembers Elizabeth Nunez",
-    excerpt:
-      "The World of Letters lost a true lion when Elizabeth Nunez passed away on November 11, 2024 at the age of eighty . . .",
-    category: "Literary Lions",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
+    title: "Audiobook Production & Preparation",
+    category: "Audio Services",
+    description:
+      "Explore the possibilities of bringing your written work into audio format with audiobook production and publication preparation.",
+    image:
+      "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=85",
+    details: [
+      "Audiobooks offer a different way for audiences to experience storytelling. Through narration and sound, a written work becomes an engaging listening experience.",
+      "Audiobook preparation involves several stages, including narration planning, recording, audio editing, quality checks, and distribution preparation.",
+      "Careful production and technical preparation help create an audiobook that presents the author's work clearly and professionally.",
+    ],
+    features: [
+      "Audiobook production planning",
+      "Narration preparation",
+      "Audio editing and mastering coordination",
+      "Audio quality review",
+      "Audiobook metadata and publishing preparation",
+    ],
   },
 ];
 
-const sidebarNews = [
-  "SCAM ALERT!!!",
-  "Exclusive Chuck D Preorder",
-  "Exclusive Natasha Howard Preorder Package",
-  "Exclusive David Duchovny Preorder Package",
-  "Exclusive Gina Gershon Preorder Package",
-  "Exclusive Robyn Hitchcock Preorder Package",
+// ======================================
+// SERVICE CATEGORIES
+// ======================================
+
+const serviceCategories = [
+  "All Services",
+  "Editorial Services",
+  "Design Services",
+  "Publishing Services",
+  "Marketing Services",
+  "Audio Services",
 ];
 
-const events = [
-  {
-    id: 1,
-    title: "Kira Tucker — University of Pittsburgh (Pittsburgh, PA)",
-    date: "11/19/26",
-    desc: "Kira Tucker presents Wildest.",
-    img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
-  },
-  {
-    id: 2,
-    title: "Tiphanie Yanique — Miami Book Fair (Miami, FL)",
-    date: "11/21/26, 12:30pm",
-    desc: "Noir, Myth, and the Island Fantastic panel featuring Tiphanie Yanique.",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
-  },
+// ======================================
+// SERVICE BENEFITS
+// ======================================
+
+const benefits = [
+  "Professional Presentation",
+  "Creative Development",
+  "Publishing Guidance",
+  "Reader-Focused Design",
+  "Author Branding",
+  "Digital Publishing Support",
 ];
+
+// ======================================
+// NEWS PAGE COMPONENT
+// KEPT SAME NAME TO AVOID APP.JSX ERRORS
+// ======================================
 
 export default function NewsPage({ setActivePage }) {
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedMonth, setSelectedMonth] = useState("Select Month");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] =
+    useState("All Services");
 
-  const pageNumbers = [1, 2, 3, 4, 5, 6];
+  const [expandedService, setExpandedService] =
+    useState(null);
+
+  const [currentPage, setCurrentPage] =
+    useState(1);
+
+  const servicesPerPage = 4;
+
+  // ======================================
+  // FILTER SERVICES
+  // ======================================
+
+  const filteredServices =
+    selectedCategory === "All Services"
+      ? services
+      : services.filter(
+          (service) =>
+            service.category === selectedCategory
+        );
+
+  const totalPages = Math.ceil(
+    filteredServices.length / servicesPerPage
+  );
+
+  const currentServices = filteredServices.slice(
+    (currentPage - 1) * servicesPerPage,
+    currentPage * servicesPerPage
+  );
+
+  // ======================================
+  // CHANGE CATEGORY
+  // ======================================
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+    setExpandedService(null);
+  };
+
+  // ======================================
+  // EXPAND SERVICE DETAILS
+  // ======================================
+
+  const handleMoreDetails = (id) => {
+    setExpandedService((previous) =>
+      previous === id ? null : id
+    );
+  };
+
+  // ======================================
+  // OPEN SERVICE FROM SIDEBAR
+  // ======================================
+
+  const openService = (service) => {
+    setSelectedCategory("All Services");
+
+    const serviceIndex = services.findIndex(
+      (item) => item.id === service.id
+    );
+
+    setCurrentPage(
+      Math.floor(serviceIndex / servicesPerPage) + 1
+    );
+
+    setExpandedService(service.id);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="flex flex-col lg:flex-row items-start gap-4">
-      
-      {/* LEFT SIDEBAR: Archives, News & Features Categories, Popular Post Tags */}
+
+      {/* ======================================
+          LEFT SIDEBAR
+      ====================================== */}
+
       <aside className="w-full lg:w-[225px] shrink-0 space-y-4">
-        
-        {/* Box 1: Archives */}
+
+        {/* BOX 1: SERVICES INTRODUCTION */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Archives</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              Our Services
+            </h2>
+
           </div>
+
           <div className="p-3">
-            <select
-              value={selectedMonth}
-              onChange={(e) => setSelectedMonth(e.target.value)}
-              className="w-full border border-gray-400 rounded-sm px-2 py-1 text-[11px] bg-white text-gray-800 focus:outline-none"
+
+            <p className="text-[12px] text-gray-700 leading-relaxed mb-3">
+              Explore professional publishing,
+              editorial, design, and promotional
+              services from Thundersmouth Press.
+            </p>
+
+            <button
+              type="button"
+              onClick={() =>
+                handleCategoryChange("All Services")
+              }
+              className="text-[11px] font-bold text-[#9e1b1b] hover:underline"
             >
-              {archiveMonths.map((month) => (
-                <option key={month} value={month}>
-                  {month}
-                </option>
-              ))}
-            </select>
+              View All Services
+            </button>
+
           </div>
+
         </div>
 
-        {/* Box 2: News & Features Categories */}
+        {/* BOX 2: SERVICE CATEGORIES */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">News &amp; Features</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              Service Categories
+            </h2>
+
           </div>
-          <ul className="px-3 py-2.5 space-y-1 text-[11px]">
-            {newsCategories.map((cat) => (
-              <li key={cat.name} className={cat.indent ? "pl-3" : ""}>
+
+          <ul className="px-3 py-3 space-y-2">
+
+            {serviceCategories.map((category) => (
+
+              <li key={category}>
+
                 <button
-                  onClick={() => setSelectedCategory(cat.name)}
-                  className={`hover:underline text-left cursor-pointer ${
-                    selectedCategory === cat.name
-                      ? "font-bold text-black underline"
-                      : "text-[#9e1b1b]"
-                  }`}
+                  type="button"
+                  onClick={() =>
+                    handleCategoryChange(category)
+                  }
+                  className={`
+                    text-[12px]
+                    text-left
+                    hover:underline
+                    ${
+                      selectedCategory === category
+                        ? "font-bold text-[#222]"
+                        : "text-[#9e1b1b]"
+                    }
+                  `}
                 >
-                  {cat.name}
+                  {category}
                 </button>
+
               </li>
+
             ))}
+
           </ul>
+
         </div>
 
-        {/* Box 3: Popular Post Tags */}
+        {/* BOX 3: WHY CHOOSE OUR SERVICES */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Popular Post Tags</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              Service Highlights
+            </h2>
+
           </div>
-          <div className="p-3 flex flex-wrap items-baseline justify-center gap-x-1.5 gap-y-1 leading-tight text-center">
-            {popularPostTags.map((tag) => (
-              <button
-                key={tag.name}
-                onClick={() => setSelectedCategory(tag.name)}
-                className={`text-[#9e1b1b] hover:underline cursor-pointer ${tag.size}`}
+
+          <ul className="p-3 space-y-2">
+
+            {benefits.map((benefit) => (
+
+              <li
+                key={benefit}
+                className="flex items-start gap-2 text-[11px] text-gray-700"
               >
-                {tag.name}
-              </button>
+
+                <span className="text-[#9e1b1b] font-bold">
+                  ✓
+                </span>
+
+                <span>{benefit}</span>
+
+              </li>
+
             ))}
-          </div>
+
+          </ul>
+
         </div>
 
       </aside>
 
-      {/* CENTER WHITE CONTENT: News & Features Articles List + Pagination */}
-      <section className="flex-1 bg-white p-5 shadow-lg border border-gray-300 w-full">
-        
-        {/* Page Heading */}
-        <div className="flex items-center justify-between pb-3 border-b border-dotted border-gray-300">
-          <h2 className="text-sm text-gray-800">News &amp; Features</h2>
-          {selectedCategory && (
-            <button
-              onClick={() => setSelectedCategory("")}
-              className="text-[11px] text-[#9e1b1b] font-bold hover:underline cursor-pointer"
-            >
-              Showing: {selectedCategory} (Clear)
-            </button>
-          )}
+      {/* ======================================
+          CENTER: MAIN SERVICES CONTENT
+      ====================================== */}
+
+      <section className="flex-1 min-w-0 w-full bg-white border border-gray-300 shadow-lg">
+
+        {/* PAGE HEADING */}
+        <div className="px-5 py-4 border-b border-gray-200">
+
+          <h1 className="text-[19px] font-bold text-[#222]">
+            Our Publishing Services
+          </h1>
+
+          <p className="text-[12px] text-gray-600 mt-1">
+            Thundersmouth Press
+          </p>
+
         </div>
 
-        {/* Articles Feed */}
-        <div className="divide-y divide-dotted divide-gray-300">
-          {newsPosts.map((post) => (
-            <article key={post.id} className="py-4 flex gap-4 items-start">
-              {post.isScamAlert ? (
-                <div className="w-16 h-20 bg-black text-white flex flex-col items-center justify-center p-1 text-center shrink-0 border border-gray-300">
-                  <span className="text-[10px] font-black leading-tight">
-                    SCAM ALERT!
-                  </span>
-                  <span className="text-[7px] text-gray-300 mt-1 leading-tight">
-                    Beware phish emails
-                  </span>
+        {/* INTRODUCTION */}
+        <div className="px-5 py-4 bg-[#faf9f6] border-b border-gray-200">
+
+          <p className="text-[12px] text-gray-700 leading-relaxed">
+            Every great book begins with an idea.
+            At Thundersmouth Press, we recognize
+            the creativity, dedication, and effort
+            involved in bringing a manuscript
+            to readers.
+          </p>
+
+          <p className="text-[12px] text-gray-700 leading-relaxed mt-3">
+            Explore our publishing-related services,
+            from manuscript editing and book design
+            to digital publishing, author branding,
+            and promotional support.
+          </p>
+
+        </div>
+
+        {/* CATEGORY HEADING */}
+        <div className="px-5 py-3 border-b border-gray-200 flex items-center justify-between gap-3">
+
+          <h2 className="text-[13px] font-bold text-[#333]">
+            {selectedCategory}
+          </h2>
+
+          {selectedCategory !== "All Services" && (
+
+            <button
+              type="button"
+              onClick={() =>
+                handleCategoryChange("All Services")
+              }
+              className="text-[11px] text-[#9e1b1b] font-semibold hover:underline"
+            >
+              Clear Filter
+            </button>
+
+          )}
+
+        </div>
+
+        {/* ======================================
+            SERVICES LIST
+        ====================================== */}
+
+        <div className="divide-y divide-gray-200">
+
+          {currentServices.map((service) => (
+
+            <article
+              key={service.id}
+              className="p-5 hover:bg-[#faf9f6] transition-colors duration-200"
+            >
+
+              {/* SERVICE MAIN ROW */}
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+
+                {/* SERVICE IMAGE */}
+                <div className="w-full sm:w-[115px] shrink-0">
+
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="
+                      w-full
+                      h-[150px]
+                      sm:h-[130px]
+                      object-cover
+                      border
+                      border-gray-200
+                      shadow-sm
+                    "
+                    loading="lazy"
+                  />
+
                 </div>
-              ) : (
-                <img
-                  src={post.img}
-                  alt={post.title}
-                  className="w-16 h-20 object-cover border border-gray-300 shrink-0"
-                />
+
+                {/* SERVICE INFORMATION */}
+                <div className="flex-1 min-w-0">
+
+                  {/* CATEGORY */}
+                  <span className="inline-block bg-[#e8e6df] text-[#333] text-[10px] font-semibold px-2 py-1 mb-2">
+                    {service.category}
+                  </span>
+
+                  {/* TITLE */}
+                  <h3 className="text-[15px] font-bold text-[#9e1b1b] leading-snug mb-2">
+                    {service.title}
+                  </h3>
+
+                  {/* DESCRIPTION */}
+                  <p className="text-[12px] text-gray-700 leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+
+                  {/* MORE DETAILS BUTTON */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleMoreDetails(service.id)
+                    }
+                    aria-expanded={
+                      expandedService === service.id
+                    }
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-[#9e1b1b]
+                      hover:bg-[#7f1515]
+                      text-white
+                      text-[11px]
+                      font-bold
+                      px-3
+                      py-2
+                      rounded-sm
+                      transition-colors
+                    "
+                  >
+
+                    {expandedService === service.id
+                      ? "Hide Details"
+                      : "More Details"}
+
+                    <span aria-hidden="true">
+                      {expandedService === service.id
+                        ? "−"
+                        : "+"}
+                    </span>
+
+                  </button>
+
+                </div>
+
+              </div>
+
+              {/* ======================================
+                  EXPANDED SERVICE DETAILS
+              ====================================== */}
+
+              {expandedService === service.id && (
+
+                <div className="mt-5 pt-5 border-t border-gray-200">
+
+                  <h4 className="text-[14px] font-bold text-[#222] mb-4">
+                    About This Service
+                  </h4>
+
+                  <div className="space-y-3">
+
+                    {service.details.map((paragraph, index) => (
+
+                      <p
+                        key={index}
+                        className="text-[12px] text-gray-700 leading-[1.9]"
+                      >
+                        {paragraph}
+                      </p>
+
+                    ))}
+
+                  </div>
+
+                  {/* FEATURES */}
+                  <div className="mt-5 bg-[#faf9f6] border border-gray-200 p-4">
+
+                    <h4 className="text-[13px] font-bold text-[#222] mb-3">
+                      What's Included
+                    </h4>
+
+                    <ul className="space-y-2">
+
+                      {service.features.map((feature) => (
+
+                        <li
+                          key={feature}
+                          className="flex items-start gap-2 text-[12px] text-gray-700"
+                        >
+
+                          <span className="text-[#9e1b1b] font-bold">
+                            ✓
+                          </span>
+
+                          <span>{feature}</span>
+
+                        </li>
+
+                      ))}
+
+                    </ul>
+
+                  </div>
+
+                </div>
+
               )}
 
-              <div className="text-xs">
-                <a
-                  href={`#post-${post.id}`}
-                  className="font-bold text-[#9e1b1b] hover:underline block mb-1"
-                >
-                  {post.title}
-                </a>
-                <p className="text-[11px] text-gray-700 leading-snug">
-                  {post.excerpt}
-                </p>
-              </div>
             </article>
+
           ))}
+
         </div>
 
-        {/* Bottom Pagination Bar */}
-        <div className="mt-6 pt-4 border-t border-dotted border-gray-300 flex flex-wrap items-center justify-center gap-1 text-[10px]">
-          <span className="border border-gray-300 px-1.5 py-0.5 text-gray-600 bg-gray-50">
-            Page {currentPage} of 174
-          </span>
+        {/* ======================================
+            PAGINATION
+        ====================================== */}
 
-          {pageNumbers.map((num) => (
-            <button
-              key={num}
-              onClick={() => setCurrentPage(num)}
-              className={`border px-1.5 py-0.5 cursor-pointer ${
-                currentPage === num
-                  ? "border-black font-bold text-black bg-gray-100"
-                  : "border-gray-300 text-[#9e1b1b] hover:bg-gray-100"
-              }`}
-            >
-              {num}
-            </button>
-          ))}
+        {totalPages > 1 && (
 
-          <span className="px-1 text-gray-500">...</span>
+          <div className="px-5 py-4 border-t border-gray-200 flex flex-wrap items-center justify-center gap-2">
 
-          {[10, 20, 30].map((num) => (
-            <button
-              key={num}
-              onClick={() => setCurrentPage(num)}
-              className={`border px-1.5 py-0.5 cursor-pointer ${
-                currentPage === num
-                  ? "border-black font-bold text-black bg-gray-100"
-                  : "border-gray-300 text-[#9e1b1b] hover:bg-gray-100"
-              }`}
-            >
-              {num}
-            </button>
-          ))}
+            {Array.from(
+              { length: totalPages },
+              (_, index) => index + 1
+            ).map((page) => (
 
-          <span className="px-1 text-gray-500">...</span>
+              <button
+                key={page}
+                type="button"
+                onClick={() => {
+                  setCurrentPage(page);
+                  setExpandedService(null);
 
-          <button
-            onClick={() => setCurrentPage((prev) => prev + 1)}
-            className="border border-gray-300 px-1.5 py-0.5 text-[#9e1b1b] hover:bg-gray-100 cursor-pointer"
-          >
-            &raquo;
-          </button>
-          <button
-            onClick={() => setCurrentPage(174)}
-            className="border border-gray-300 px-1.5 py-0.5 text-[#9e1b1b] hover:bg-gray-100 cursor-pointer"
-          >
-            Last &raquo;
-          </button>
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                }}
+                className={`
+                  px-3
+                  py-1.5
+                  text-[12px]
+                  border
+                  ${
+                    currentPage === page
+                      ? "bg-[#9e1b1b] text-white border-[#9e1b1b]"
+                      : "bg-white text-[#9e1b1b] border-gray-300 hover:bg-gray-100"
+                  }
+                `}
+              >
+                {page}
+              </button>
+
+            ))}
+
+          </div>
+
+        )}
+
+        {/* BOTTOM INFORMATION */}
+        <div className="px-5 py-3 border-t border-gray-200 bg-[#fafafa]">
+
+          <p className="text-[11px] text-gray-500">
+            Showing {currentServices.length} of{" "}
+            {filteredServices.length} publishing services.
+          </p>
+
         </div>
 
       </section>
 
-      {/* RIGHT SIDEBAR: News & Features + Upcoming Events */}
+      {/* ======================================
+          RIGHT SIDEBAR
+      ====================================== */}
+
       <aside className="w-full lg:w-[235px] shrink-0 space-y-4">
-        
-        {/* Box 1: News & Features */}
+
+        {/* BOX 1: POPULAR SERVICES */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">News &amp; Features</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              Popular Services
+            </h2>
+
           </div>
-          <div className="p-3 text-[11px]">
-            <ul className="space-y-1.5 list-disc pl-4 text-[#9e1b1b] mb-3">
-              {sidebarNews.map((item) => (
-                <li key={item}>
-                  <a href="#news" className="hover:underline">
-                    {item}
-                  </a>
+
+          <div className="p-3">
+
+            <ul className="space-y-3">
+
+              {[
+                services[0],
+                services[1],
+                services[2],
+                services[3],
+                services[5],
+              ].map((service) => (
+
+                <li
+                  key={service.id}
+                  className="border-b border-gray-100 pb-2 last:border-0"
+                >
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      openService(service)
+                    }
+                    className="text-[11px] font-semibold text-[#9e1b1b] hover:underline text-left leading-snug"
+                  >
+                    {service.title}
+                  </button>
+
                 </li>
+
               ))}
+
             </ul>
-            <button
-              onClick={() => setSelectedCategory("")}
-              className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline cursor-pointer"
-            >
-              More News &amp; Features &raquo;
-            </button>
+
           </div>
+
         </div>
 
-        {/* Box 2: Upcoming Events */}
+        {/* BOX 2: PUBLISHING PROCESS */}
         <div className="bg-white border border-gray-300 shadow-md">
+
           <div className="bg-[#e8e6df] border-b border-gray-300 px-3 py-2">
-            <h2 className="text-xs font-bold text-[#222]">Upcoming Events</h2>
+
+            <h2 className="text-xs font-bold text-[#222]">
+              Publishing Process
+            </h2>
+
           </div>
 
-          <div className="divide-y divide-gray-200">
-            {events.map((event) => (
-              <div key={event.id} className="p-3 flex gap-2.5 items-start">
-                <img
-                  src={event.img}
-                  alt={event.title}
-                  className="w-14 h-20 object-cover border border-gray-200 shrink-0"
-                />
-                <div className="text-[11px]">
-                  <a
-                    href="#event"
-                    className="font-bold text-[#9e1b1b] hover:underline leading-snug block mb-1"
-                  >
-                    {event.title}
-                  </a>
-                  <p className="text-gray-700 font-medium mb-1">{event.date}</p>
-                  <p className="text-gray-600 leading-snug">{event.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="p-3 space-y-4">
+
+            <div>
+
+              <h3 className="text-[12px] font-bold text-[#9e1b1b] mb-1">
+                Manuscript Preparation
+              </h3>
+
+              <p className="text-[11px] text-gray-700 leading-relaxed">
+                Editing, proofreading, and editorial
+                refinement to prepare your manuscript.
+              </p>
+
+            </div>
+
+            <div className="border-t border-gray-200 pt-3">
+
+              <h3 className="text-[12px] font-bold text-[#9e1b1b] mb-1">
+                Design & Formatting
+              </h3>
+
+              <p className="text-[11px] text-gray-700 leading-relaxed">
+                Book cover development and interior
+                formatting for print or digital editions.
+              </p>
+
+            </div>
+
+            <div className="border-t border-gray-200 pt-3">
+
+              <h3 className="text-[12px] font-bold text-[#9e1b1b] mb-1">
+                Publishing Preparation
+              </h3>
+
+              <p className="text-[11px] text-gray-700 leading-relaxed">
+                Organizing the materials and information
+                required for publication.
+              </p>
+
+            </div>
+
+            <div className="border-t border-gray-200 pt-3">
+
+              <h3 className="text-[12px] font-bold text-[#9e1b1b] mb-1">
+                Marketing & Visibility
+              </h3>
+
+              <p className="text-[11px] text-gray-700 leading-relaxed">
+                Exploring promotional strategies
+                and opportunities to connect
+                with potential readers.
+              </p>
+
+            </div>
+
           </div>
 
-          <div className="px-3 py-2 border-t border-gray-200">
-            <button
-              onClick={() => setActivePage("EVENTS")}
-              className="text-[10.5px] font-bold text-[#9e1b1b] hover:underline cursor-pointer"
-            >
-              More Events &raquo;
-            </button>
+        </div>
+
+        {/* BOX 3: THUNDERSMOUTH PRESS */}
+        <div className="bg-white border border-gray-300 shadow-md">
+
+          <div className="bg-[#333333] border-b-2 border-[#9e1b1b] px-3 py-3">
+
+            <h2 className="text-[13px] font-bold text-white">
+              Thundersmouth Press
+            </h2>
+
+            <p className="text-[10px] text-gray-300 mt-1">
+              Publishing • Creativity • Literature
+            </p>
+
           </div>
+
+          <div className="p-3">
+
+            <h3 className="text-[12px] font-bold text-[#222] mb-2">
+              Your Publishing Journey
+            </h3>
+
+            <p className="text-[11px] text-gray-700 leading-relaxed">
+              Discover publishing-related services
+              designed to support different stages
+              of your creative journey, from
+              preparing your manuscript to
+              presenting your finished book.
+            </p>
+
+          </div>
+
         </div>
 
       </aside>

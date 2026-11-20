@@ -7,8 +7,7 @@ export default function TopBar() {
         
         {/* CENTER: Tagline */}
         <div className="text-center text-[11px] sm:text-xs font-bold tracking-[0.12em] uppercase">
-          Reverse-Gentrification of the Literary World
-        </div>
+Discover Great Books. Celebrate Powerful Stories.        </div>
 
       </div>
     </div>
